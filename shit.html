@@ -1,0 +1,2339 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>결 (GYEOL) — MBTI · 정치 성향 가치관 아카이브</title>
+    <meta
+      name="description"
+      content="성격 심리학과 정치학 연구를 바탕으로 MBTI 4가지 인지 지표와 사회적 가치·정치 성향의 상관관계를 살펴보는 16문항 에디토리얼 설문입니다."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-paper: #f7f4ee;
+        --bg-card: #fbf9f5;
+        --bg-stone: #ebe6df;
+        --ink: #1c1917;
+        --ink-sub: #44403c;
+        --ink-muted: #78716c;
+        --border: #e7e5e4;
+        --border-strong: #d6d3d1;
+        --accent: #1b4332;
+        --accent-hover: #143326;
+        --slate: #2b3a55;
+        --font-serif: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif;
+        --font-sans: 'Plus Jakarta Sans', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: var(--font-sans);
+        background-color: var(--bg-paper);
+        color: var(--ink);
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--bg-paper);
+        color: var(--ink);
+        line-height: 1.6;
+      }
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        background: none;
+        color: inherit;
+      }
+
+      button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .font-serif {
+        font-family: var(--font-serif);
+      }
+      .font-mono {
+        font-family: var(--font-mono);
+      }
+      .tabular-nums {
+        font-variant-numeric: tabular-nums;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1152px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .container-narrow {
+        width: 100%;
+        max-width: 768px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .container-result {
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      .site-header {
+        width: 100%;
+        border-bottom: 1px solid var(--border);
+        background-color: rgba(247, 244, 238, 0.95);
+        backdrop-filter: blur(4px);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 20px;
+        max-width: 1152px;
+        margin: 0 auto;
+      }
+      .brand-wordmark {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: color 0.15s ease;
+      }
+      .brand-wordmark:hover {
+        color: var(--accent);
+      }
+      .header-nav {
+        display: none;
+        align-items: center;
+        gap: 28px;
+      }
+      .nav-link {
+        font-size: 14px;
+        font-weight: 500;
+        color: #57534e;
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 4px 0;
+        transition: color 0.15s ease;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--ink);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .mobile-archive-btn {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink-sub);
+        padding: 8px 10px;
+        white-space: nowrap;
+      }
+
+      /* Buttons */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 10px 20px;
+        border-radius: 6px;
+        background-color: var(--accent);
+        color: var(--bg-paper);
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background-color 0.15s ease;
+      }
+      .btn-primary:hover {
+        background-color: var(--accent-hover);
+      }
+      .btn-primary-sm {
+        min-height: 36px;
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 10px 18px;
+        border-radius: 6px;
+        border: 1px solid var(--border-strong);
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: border-color 0.15s ease, background-color 0.15s ease;
+      }
+      .btn-outline:hover {
+        border-color: #78716c;
+        background-color: rgba(235, 230, 223, 0.5);
+      }
+
+      main {
+        flex: 1;
+      }
+
+      /* Sections & Typography */
+      .section-divider {
+        border-bottom: 1px solid var(--border);
+        padding: 48px 0;
+      }
+      .kicker {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        color: var(--ink-muted);
+        margin: 0;
+      }
+      .hero-title {
+        font-family: var(--font-serif);
+        font-size: clamp(2.1rem, 4vw, 3rem);
+        font-weight: 600;
+        line-height: 1.22;
+        letter-spacing: -0.02em;
+        margin: 16px 0 0;
+        text-wrap: balance;
+      }
+      .section-title {
+        font-family: var(--font-serif);
+        font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+        font-weight: 600;
+        line-height: 1.3;
+        letter-spacing: -0.015em;
+        margin: 8px 0 0;
+        text-wrap: balance;
+      }
+
+      /* Grids */
+      .hero-grid {
+        display: grid;
+        gap: 36px;
+        align-items: stretch;
+        border-bottom: 1px solid var(--border);
+        padding: 48px 0;
+      }
+      .pillars-grid {
+        display: grid;
+        gap: 36px;
+        margin-top: 36px;
+      }
+      .axes-grid {
+        display: grid;
+        gap: 24px;
+        margin-top: 36px;
+      }
+      .groups-grid {
+        display: grid;
+        gap: 24px;
+        margin-top: 36px;
+      }
+      .two-col {
+        display: grid;
+        gap: 16px;
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background-color: var(--bg-card);
+        padding: 24px;
+      }
+      .sub-card {
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background-color: var(--bg-paper);
+        padding: 14px;
+      }
+
+      .artwork-frame {
+        overflow: hidden;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background-color: var(--bg-stone);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .artwork-frame svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .figure-caption {
+        margin: 10px 0 0;
+        font-family: var(--font-serif);
+        font-size: 12px;
+        font-style: italic;
+        color: var(--ink-muted);
+      }
+
+      /* Quiz */
+      .progress-track {
+        margin-top: 16px;
+        height: 3px;
+        width: 100%;
+        background-color: var(--border);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        background-color: var(--accent);
+        transform-origin: left;
+        transition: transform 0.2s ease-out;
+      }
+      .step-dots {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 12px;
+      }
+      .step-btn {
+        height: 24px;
+        width: 28px;
+        border-radius: 4px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-variant-numeric: tabular-nums;
+        transition: background-color 0.15s ease, color 0.15s ease;
+      }
+      .step-btn.current {
+        background-color: var(--ink);
+        color: var(--bg-paper);
+      }
+      .step-btn.answered {
+        background-color: var(--bg-stone);
+        color: var(--ink);
+      }
+      .step-btn.answered:hover {
+        background-color: var(--border-strong);
+      }
+      .step-btn.disabled {
+        background-color: rgba(231, 229, 228, 0.45);
+        color: #a8a29e;
+        cursor: not-allowed;
+      }
+
+      .choices-grid {
+        display: grid;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .choice-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 68px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        border: 1px solid var(--border-strong);
+        background-color: var(--bg-card);
+        text-align: left;
+        transition: all 0.15s ease;
+      }
+      .choice-btn:hover {
+        border-color: #78716c;
+        background-color: rgba(235, 230, 223, 0.6);
+      }
+      .choice-btn.selected {
+        border-color: var(--accent);
+        background-color: var(--accent);
+        color: var(--bg-paper);
+      }
+
+      /* Result Spectrums */
+      .spectrum-bar-bg {
+        position: relative;
+        height: 10px;
+        width: 100%;
+        border-radius: 999px;
+        background-color: var(--border);
+        margin-top: 8px;
+      }
+      .spectrum-marker {
+        position: absolute;
+        top: 50%;
+        width: 16px;
+        height: 16px;
+        border-radius: 999px;
+        background-color: var(--accent);
+        border: 2px solid var(--bg-paper);
+        transform: translate(-50%, -50%);
+      }
+      .dual-bar {
+        display: flex;
+        height: 10px;
+        width: 100%;
+        border-radius: 999px;
+        overflow: hidden;
+        background-color: var(--border);
+        margin-top: 10px;
+      }
+
+      /* Segmented & Filter Tabs */
+      .segmented {
+        display: inline-flex;
+        gap: 4px;
+        padding: 4px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background-color: rgba(235, 230, 223, 0.7);
+      }
+      .seg-btn {
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #57534e;
+        white-space: nowrap;
+      }
+      .seg-btn.active {
+        background-color: var(--bg-paper);
+        color: var(--ink);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      }
+      .filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .filter-btn {
+        padding: 8px 14px;
+        border-radius: 6px;
+        border: 1px solid var(--border-strong);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink-sub);
+        white-space: nowrap;
+      }
+      .filter-btn.active {
+        border-color: var(--accent);
+        background-color: var(--accent);
+        color: var(--bg-paper);
+      }
+
+      /* Modal */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        background-color: rgba(28, 25, 23, 0.5);
+        backdrop-filter: blur(2px);
+      }
+      .modal-panel {
+        position: relative;
+        width: 100%;
+        max-width: 672px;
+        max-height: 88vh;
+        overflow-y: auto;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background-color: var(--bg-paper);
+        padding: 28px;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+      }
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        color: #57534e;
+      }
+      .modal-close:hover {
+        background-color: rgba(214, 211, 209, 0.4);
+        color: var(--ink);
+      }
+
+      /* Footer */
+      .site-footer {
+        margin-top: 64px;
+        border-top: 1px solid var(--border);
+        padding: 40px 0;
+      }
+
+      /* Responsive Breakpoints */
+      @media (min-width: 640px) {
+        .container,
+        .container-narrow,
+        .container-result,
+        .header-inner {
+          padding-left: 32px;
+          padding-right: 32px;
+        }
+        .two-col {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .pillars-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .choices-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .groups-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 768px) {
+        .header-nav {
+          display: flex;
+        }
+        .mobile-archive-btn {
+          display: none;
+        }
+        .axes-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .hero-grid {
+          grid-template-columns: 6fr 6fr;
+          gap: 48px;
+          padding: 64px 0;
+        }
+        .result-hero-grid {
+          grid-template-columns: 7fr 5fr;
+          gap: 48px;
+        }
+        .result-split-12 {
+          grid-template-columns: 7fr 5fr;
+          gap: 24px;
+        }
+        .pillars-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .groups-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .choices-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <button type="button" class="brand-wordmark" data-action="home">결 GYEOL</button>
+
+        <nav class="header-nav" aria-label="주요 메뉴">
+          <button type="button" class="nav-link" data-action="home" data-section="direction">연구 배경</button>
+          <button type="button" class="nav-link" data-action="home" data-section="axes">핵심 지표</button>
+          <button type="button" class="nav-link" data-action="archive" data-tab="types">16유형 도감</button>
+          <button type="button" class="nav-link" data-action="archive" data-tab="history">설문 기록</button>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="mobile-archive-btn" data-action="archive" data-tab="types">도감</button>
+          <button type="button" class="btn-primary btn-primary-sm" id="header-cta" data-action="start">설문 시작</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="app-root"></main>
+
+    <footer class="site-footer">
+      <div
+        class="container"
+        style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;"
+      >
+        <div>
+          <p class="font-serif" style="margin:0;font-size:16px;font-weight:600;">
+            결 GYEOL — MBTI · 정치 성향 가치관 아카이브
+          </p>
+          <p style="margin:4px 0 0;font-size:12px;color:var(--ink-muted);">
+            성격 심리학·정치학 연구를 바탕으로 4가지 인지 지표와 사회적 가치관의 상관관계를 살피는 16문항 설문
+          </p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:24px;font-size:12px;font-weight:500;color:#57534e;">
+          <button type="button" data-action="home" data-section="direction">연구 배경</button>
+          <button type="button" data-action="home" data-section="axes">핵심 지표</button>
+          <button type="button" data-action="archive" data-tab="types">16유형 도감</button>
+          <button type="button" style="color:var(--accent);" data-action="start">설문 시작</button>
+        </div>
+      </div>
+    </footer>
+
+    <div id="modal-root"></div>
+
+    <script>
+      (function () {
+        const STORAGE_KEY = 'gyeol_mbti_political_history_v1';
+
+        const ARTWORKS = {
+          HERO: `
+            <svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="인지 지표와 가치관의 등고선 판화 도판">
+              <rect width="640" height="480" fill="#EFECE4"/>
+              <g fill="none" stroke="#1C1917" stroke-width="1.2" opacity="0.72">
+                <path d="M 30 110 Q 170 70, 290 125 T 610 100" />
+                <path d="M 30 140 Q 180 95, 310 155 T 610 130" />
+                <path d="M 30 175 Q 190 125, 330 190 T 610 170" />
+                <path d="M 30 215 Q 200 165, 350 230 T 610 215" />
+                <path d="M 30 260 Q 180 215, 320 275 T 610 265" />
+                <path d="M 30 305 Q 190 270, 340 325 T 610 315" />
+                <path d="M 30 355 Q 210 325, 360 375 T 610 365" />
+              </g>
+              <g>
+                <rect x="145" y="210" width="42" height="150" fill="#1C1917"/>
+                <rect x="195" y="250" width="28" height="110" fill="#1B4332"/>
+                <rect x="380" y="135" width="46" height="185" fill="#1B4332"/>
+                <rect x="436" y="175" width="32" height="145" fill="#1C1917"/>
+                <rect x="285" y="160" width="22" height="105" fill="#1C1917"/>
+                <rect x="313" y="195" width="38" height="70" fill="#F7F4EE" stroke="#1C1917" stroke-width="1.5"/>
+              </g>
+            </svg>
+          `,
+          NT: `
+            <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="분석가형 NT 도판">
+              <rect width="320" height="320" fill="#EFECE4"/>
+              <circle cx="160" cy="160" r="105" fill="none" stroke="#1C1917" stroke-width="2"/>
+              <circle cx="160" cy="160" r="70" fill="none" stroke="#2B3A55" stroke-width="1.5"/>
+              <polygon points="160,72 236,204 84,204" fill="none" stroke="#2B3A55" stroke-width="2"/>
+              <polygon points="160,248 236,116 84,116" fill="none" stroke="#1C1917" stroke-width="1.3"/>
+              <line x1="55" y1="160" x2="265" y2="160" stroke="#1C1917" stroke-width="1"/>
+              <line x1="160" y1="55" x2="160" y2="265" stroke="#1C1917" stroke-width="1"/>
+              <circle cx="160" cy="160" r="8" fill="#2B3A55"/>
+            </svg>
+          `,
+          NF: `
+            <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="외교관형 NF 도판">
+              <rect width="320" height="320" fill="#EFECE4"/>
+              <path d="M 105 170 A 55 55 0 0 1 215 170" fill="none" stroke="#1C1917" stroke-width="2"/>
+              <ellipse cx="160" cy="205" rx="95" ry="26" fill="none" stroke="#1C1917" stroke-width="1.4"/>
+              <ellipse cx="160" cy="205" rx="64" ry="16" fill="none" stroke="#1B4332" stroke-width="1.4"/>
+              <ellipse cx="160" cy="205" rx="34" ry="8" fill="none" stroke="#1C1917" stroke-width="1.2"/>
+              <path d="M 76 198 C 70 110, 130 62, 198 76 C 238 86, 252 135, 245 190" fill="none" stroke="#1B4332" stroke-width="2.2"/>
+              <path d="M 110 88 C 122 98, 124 114, 108 118 C 98 110, 100 96, 110 88 Z" fill="#1B4332"/>
+              <path d="M 164 68 C 178 78, 180 96, 162 98 C 152 88, 154 76, 164 68 Z" fill="#1B4332"/>
+              <path d="M 218 94 C 230 106, 228 122, 212 122 C 204 112, 208 100, 218 94 Z" fill="#1B4332"/>
+            </svg>
+          `,
+          SJ: `
+            <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="관리자형 SJ 도판">
+              <rect width="320" height="320" fill="#EFECE4"/>
+              <rect x="64" y="236" width="192" height="14" fill="#1C1917"/>
+              <rect x="82" y="136" width="22" height="100" fill="#1C1917"/>
+              <rect x="216" y="136" width="22" height="100" fill="#1C1917"/>
+              <rect x="116" y="148" width="18" height="88" fill="#7C5D3A"/>
+              <rect x="186" y="148" width="18" height="88" fill="#7C5D3A"/>
+              <path d="M 125 148 A 35 35 0 0 1 195 148" fill="none" stroke="#1C1917" stroke-width="6"/>
+              <rect x="74" y="122" width="172" height="14" fill="#F7F4EE" stroke="#1C1917" stroke-width="2"/>
+              <polygon points="160,64 235,104 85,104" fill="none" stroke="#1C1917" stroke-width="2.2"/>
+              <rect x="142" y="84" width="36" height="38" fill="none" stroke="#7C5D3A" stroke-width="2"/>
+            </svg>
+          `,
+          SP: `
+            <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="탐험가형 SP 도판">
+              <rect width="320" height="320" fill="#EFECE4"/>
+              <path d="M 55 215 C 95 215, 95 145, 138 148 C 165 150, 152 182, 128 182 C 155 215, 215 190, 265 208" fill="none" stroke="#1C1917" stroke-width="6" stroke-linecap="round"/>
+              <path d="M 75 232 Q 165 212, 245 230" fill="none" stroke="#1C1917" stroke-width="1.5"/>
+              <polygon points="150,152 184,96 205,134" fill="#8C4A32" stroke="#1C1917" stroke-width="1.5"/>
+              <polygon points="184,96 238,118 205,134" fill="#A0583C" stroke="#1C1917" stroke-width="1.5"/>
+              <polygon points="184,96 154,82 170,118" fill="#8C4A32" stroke="#1C1917" stroke-width="1.5"/>
+            </svg>
+          `,
+        };
+
+        const SERVICE_PILLARS = [
+          {
+            index: '01',
+            category: '연구 배경',
+            title: '성격과 가치관의 약한 상관관계',
+            description:
+              '빅5 성격 모델 및 MBTI 연계 심리학·정치학 연구에 따르면, 성격이 정치 태도를 완전히 결정하지는 않지만 세상을 해석하는 인지 방식은 특정 가치에 대한 끌림과 통계적으로 유의미한 연관성을 보입니다.',
+          },
+          {
+            index: '02',
+            category: '가장 뚜렷한 축',
+            title: '감각(S)과 직관(N)의 변화관',
+            description:
+              '연구에서 가장 선명한 차이를 보이는 축입니다. 새로운 체제와 미래 가능성을 상상하는 직관형(N)은 개혁·진보적 가치와, 검증된 사실과 안정을 중시하는 감각형(S)은 보수적 가치와 연결되는 경향이 나타납니다.',
+          },
+          {
+            index: '03',
+            category: '정책 우선순위',
+            title: '사고(T)와 감정(F)의 기준점',
+            description:
+              '타인의 고통에 대한 공감과 조화를 우선하는 감정형(F)은 사회·복지 영역의 분배 정책에, 객관적 효율성과 공정 규칙·개인의 책임을 강조하는 사고형(T)은 경제 영역의 시장·능력주의 관점에 우호적인 편입니다.',
+          },
+          {
+            index: '04',
+            category: '질서와 자율',
+            title: '판단(J)과 인식(P)의 규범 태도',
+            description:
+              '명확한 법치와 예측 가능한 체계를 선호하는 판단형(J)은 사회적 규범을 강조하는 보수적 태도와, 유연성과 개인의 자율을 중시하는 인식형(P)은 기존 규범 성찰과 자유 확장을 중시하는 진보·자유주의 태도와 닿아 있습니다.',
+          },
+          {
+            index: '05',
+            category: '참여 방식',
+            title: '외향(E)과 내향(I)의 시민 행동',
+            description:
+              '외향성과 내향성은 진보·보수라는 이념적 방향 자체와는 상관관계가 거의 없습니다. 대신 집회·오프라인 토론 같은 적극적 참여(E)와 자료 숙고·온라인 의견 개진·조용한 투표(I)라는 참여 방식의 차이로 드러납니다.',
+          },
+          {
+            index: '06',
+            category: '질문 설계',
+            title: '균형 잡힌 16개 사회·정책 딜레마',
+            description:
+              '어느 한쪽의 가치관을 우열로 평가하지 않고, 제도 변화·공정성·복지와 효율·법치와 자율·참여 스타일을 묻는 16개 문항으로 나의 인지 지표와 가치 스펙트럼을 함께 살펴봅니다.',
+          },
+        ];
+
+        const AXES_INFO = [
+          {
+            key: 'SN',
+            title: '감각(S) vs 직관(N) — 변화와 안정',
+            subtitle: '문항 01–04 · 연구상 정치 성향 차이가 가장 뚜렷한 축',
+            correlationNote: '세상을 바라보는 인식 방식과 체제 변화에 대한 개방성',
+            leftPole: {
+              letter: 'S',
+              name: '감각 (Sensing)',
+              summary: '현실적 경험, 검증된 사실, 구체적인 실용성과 안정을 중시합니다.',
+              politicalLink: '보수 성향 경향 · 검증된 제도와 전통 유지 선호',
+            },
+            rightPole: {
+              letter: 'N',
+              name: '직관 (iNtuition)',
+              summary: '추상적 개념, 미래의 가능성, 새로운 대안과 시도에 개방적입니다.',
+              politicalLink: '진보 성향 경향 · 체제 개선과 개혁적 가치 선호',
+            },
+          },
+          {
+            key: 'TF',
+            title: '사고(T) vs 감정(F) — 정책 우선순위',
+            subtitle: '문항 05–08 · 사회·경제 정책의 판단 근거',
+            correlationNote: '효율·공정 규칙과 공감·공동체 배려 사이의 우선순위',
+            leftPole: {
+              letter: 'T',
+              name: '사고 (Thinking)',
+              summary: '객관적 효율성, 공정한 규칙, 개인의 책임과 성취 보상을 중시합니다.',
+              politicalLink: '보수(경제 분야) 경향 · 시장주의·능력주의 관점 우호',
+            },
+            rightPole: {
+              letter: 'F',
+              name: '감정 (Feeling)',
+              summary: '타인의 어려움에 대한 공감, 사회적 약자 보호, 공동체 조화를 우선합니다.',
+              politicalLink: '진보(사회·복지 분야) 경향 · 분배·복지 안전망 우호',
+            },
+          },
+          {
+            key: 'JP',
+            title: '판단(J) vs 인식(P) — 질서와 자율',
+            subtitle: '문항 09–12 · 사회적 규범과 개인의 자유에 대한 태도',
+            correlationNote: '법치·예측 가능성과 유연성·규범 성찰 사이의 균형',
+            leftPole: {
+              letter: 'J',
+              name: '판단 (Judging)',
+              summary: '명확한 규칙, 체계, 질서와 예측 가능한 합의를 선호합니다.',
+              politicalLink: '보수 성향 경향 · 법치와 사회적 규범·안정 강조',
+            },
+            rightPole: {
+              letter: 'P',
+              name: '인식 (Perceiving)',
+              summary: '유연성, 자율성을 중시하며 기존 권위나 관행에 비판적 질문을 던집니다.',
+              politicalLink: '진보·자유주의 경향 · 규범 유연화와 개인 자유 확장 중시',
+            },
+          },
+          {
+            key: 'EI',
+            title: '외향(E) vs 내향(I) — 정치 참여 방식',
+            subtitle: '문항 13–16 · 이념 방향과 무관한 시민 참여 스타일',
+            correlationNote: '진보·보수 방향과는 상관이 거의 없으며 표현·행동 방식에 영향',
+            leftPole: {
+              letter: 'I',
+              name: '내향 (Introversion)',
+              summary: '충분한 자료 검토와 내면의 숙고를 거쳐 차분하게 의사를 표현합니다.',
+              politicalLink: '숙고형 참여 · 온라인 의견 개진 및 조용한 투표 중심',
+            },
+            rightPole: {
+              letter: 'E',
+              name: '외향 (Extraversion)',
+              summary: '사람들과 직접 의견을 나누고 현장 활동으로 에너지를 얻습니다.',
+              politicalLink: '행동형 참여 · 집회·토론·오프라인 모임 등 적극적 연대',
+            },
+          },
+        ];
+
+        const QUESTIONS = [
+          {
+            id: 1,
+            axis: 'SN',
+            axisLabel: 'S / N · 변화와 안정에 대한 시선',
+            scene: '사회 제도의 개선 방향',
+            prompt: '현재 사회 제도에 한계가 보일 때, 우리가 나아가야 할 변화의 방식은 어느 쪽에 더 가깝다고 보시나요?',
+            poleA: 'S',
+            labelA: '지금까지 검증된 제도의 기반과 장점을 지키면서, 현장에서 확인된 문제만 현실적으로 보완해 가는 편이 안전하다.',
+            poleB: 'N',
+            labelB: '부분 수정만으로 한계가 분명하다면, 미래의 가능성을 열어두는 새로운 구조와 체제적 대안을 과감히 상상해야 한다.',
+            isAnchor: true,
+          },
+          {
+            id: 2,
+            axis: 'SN',
+            axisLabel: 'S / N · 변화와 안정에 대한 시선',
+            scene: '정책 공약을 살피는 기준',
+            prompt: '선거철이나 공적 토론에서 새로운 정책 제안을 들었을 때, 내 마음이 먼저 기울고 신뢰가 가는 설명은 무엇인가요?',
+            poleA: 'S',
+            labelA: '당장 실행할 수 있는 구체적 예산 근거, 세부 절차, 과거에 실제 효과를 거두었던 검증 사례.',
+            poleB: 'N',
+            labelB: '이 정책이 앞으로 사회의 큰 흐름과 미래 세대의 삶의 방향을 어떻게 바꾸어 놓을지에 대한 비전과 의미.',
+          },
+          {
+            id: 3,
+            axis: 'SN',
+            axisLabel: 'S / N · 변화와 안정에 대한 시선',
+            scene: '전통과 관습을 대하는 태도',
+            prompt: '오랫동안 이어져 온 사회의 전통이나 익숙한 관행을 마주할 때, 나는 주로 어떤 관점을 취하나요?',
+            poleA: 'S',
+            labelA: '오랜 시간을 버텨온 관습에는 세대를 거쳐 검증된 실용적 지혜와 공동체를 지탱하는 안정 가치가 담겨 있다.',
+            poleB: 'N',
+            labelB: '과거의 기준이 오늘의 현실과 맞지 않는다면, 시대 변화에 맞춰 과감히 재해석하거나 새로운 시도로 대체해야 한다.',
+          },
+          {
+            id: 4,
+            axis: 'SN',
+            axisLabel: 'S / N · 변화와 안정에 대한 시선',
+            scene: '사회적 위기 대응 방식',
+            prompt: '경기 침체나 새로운 사회 문제가 불거졌을 때, 가장 먼저 선택해야 한다고 느끼는 해법은 무엇인가요?',
+            poleA: 'S',
+            labelA: '이미 검증된 기존 매뉴얼과 현실적인 안정 대책을 우선 적용해 불확실성과 부작용을 최소화한다.',
+            poleB: 'N',
+            labelB: '과거와 다른 성격의 문제일 수 있으므로, 기존 틀에 얽매이지 않은 실험적이고 혁신적인 해법을 시도해 본다.',
+          },
+          {
+            id: 5,
+            axis: 'TF',
+            axisLabel: 'T / F · 정책 우선순위와 공정 기준',
+            scene: '경제 성장과 복지 분배',
+            prompt: '한정된 국가 예산을 배분해야 할 때, 장기적으로 더 건강하고 바람직하다고 느끼는 방향은 어느 쪽인가요?',
+            poleA: 'T',
+            labelA: '시장의 활력과 객관적 효율성을 높여 파이를 키우고, 개인의 책임과 성취에 비례해 보상이 돌아가도록 설계한다.',
+            poleB: 'F',
+            labelB: '효율성이 다소 떨어지더라도 사회적 약자를 보호하고, 모든 구성원이 함께 살아갈 수 있는 두터운 복지 안전망을 우선한다.',
+            isAnchor: true,
+          },
+          {
+            id: 6,
+            axis: 'TF',
+            axisLabel: 'T / F · 정책 우선순위와 공정 기준',
+            scene: '사회를 지탱하는 공정함의 의미',
+            prompt: '사회적 이슈에서 "공정하다"는 말을 들었을 때, 내 머릿속에 더 먼저 떠오르는 원칙은 무엇인가요?',
+            poleA: 'T',
+            labelA: '누구에게나 동일한 규칙과 기준이 예외 없이 적용되고, 노력과 역량의 결과에 따라 공정하게 평가받는 상태.',
+            poleB: 'F',
+            labelB: '서로 다른 처지와 취약한 출발선을 세심히 헤아려, 누구도 기본적인 존엄과 공동체에서 소외되지 않는 상태.',
+          },
+          {
+            id: 7,
+            axis: 'TF',
+            axisLabel: 'T / F · 정책 우선순위와 공정 기준',
+            scene: '공공 사업의 평가 잣대',
+            prompt: '정부나 지자체가 추진하는 공공 정책의 성패를 가늠할 때, 더 중요하게 살펴보아야 할 기준은 무엇일까요?',
+            poleA: 'T',
+            labelA: '투입된 비용 대비 실제 성과와 합리적 효율성, 제도가 의도대로 일관되게 작동하는지에 대한 객관적 지표.',
+            poleB: 'F',
+            labelB: '그 정책으로 인해 실제로 어려움을 겪던 사람들의 마음이 얼마나 놓였는지, 공동체 내 갈등이 얼마나 누그러졌는지.',
+          },
+          {
+            id: 8,
+            axis: 'TF',
+            axisLabel: 'T / F · 정책 우선순위와 공정 기준',
+            scene: '사회적 갈등을 풀어가는 법',
+            prompt: '이해관계가 첨예하게 부딪히는 사회 갈등을 해결해야 할 때, 우선되어야 할 태도는 무엇이라고 생각하나요?',
+            poleA: 'T',
+            labelA: '감정적 호소를 배제하고 객관적인 사실 관계와 법적·논리적 타당성을 따져 분명한 원칙을 세워야 한다.',
+            poleB: 'F',
+            labelB: '당사자들이 겪는 고통과 맥락을 충분히 경청하고 공감해 주어야 비로소 진정한 사회적 합의가 이루어진다.',
+          },
+          {
+            id: 9,
+            axis: 'JP',
+            axisLabel: 'J / P · 질서와 자율에 대한 태도',
+            scene: '법치와 개인의 자유',
+            prompt: '개인의 자유로운 선택과 사회적 규범이 긴장을 이룰 때, 내가 더 경계하거나 중요하게 여기는 지점은 어느 쪽인가요?',
+            poleA: 'J',
+            labelA: '명확한 규칙과 법질서가 흔들리면 사회 전체의 예측 가능성이 무너지므로, 합의된 규범을 엄정히 지키는 것이 우선이다.',
+            poleB: 'P',
+            labelB: '기존 규범이나 권위가 개인의 자율성과 다양한 삶의 방식을 과도하게 억누르지 않는지 늘 비판적으로 살펴야 한다.',
+            isAnchor: true,
+          },
+          {
+            id: 10,
+            axis: 'JP',
+            axisLabel: 'J / P · 질서와 자율에 대한 태도',
+            scene: '바람직한 정책 추진 리듬',
+            prompt: '공적 제도를 설계하고 운영할 때, 사회에 더 도움이 된다고 느끼는 운영 방식은 무엇인가요?',
+            poleA: 'J',
+            labelA: '분명한 목표와 단계별 로드맵을 미리 확정하고, 정해진 원칙대로 일관성 있게 밀고 나가야 혼선을 줄일 수 있다.',
+            poleB: 'P',
+            labelB: '예상치 못한 변화에 대응할 수 있도록 제도를 유연하게 열어두고, 현장의 목소리에 따라 수시로 조정할 수 있어야 한다.',
+          },
+          {
+            id: 11,
+            axis: 'JP',
+            axisLabel: 'J / P · 질서와 자율에 대한 태도',
+            scene: '권위와 제도에 대한 시선',
+            prompt: '사회적으로 통용되는 위계나 공적 권위의 결정을 마주했을 때, 나의 자연스러운 첫 반응은 어떠한가요?',
+            poleA: 'J',
+            labelA: '질서 있는 공동체를 유지하려면 정당한 절차로 세워진 권위와 체계적인 규칙을 존중하고 따르는 편이 합당하다.',
+            poleB: 'P',
+            labelB: '관행이나 권위라는 이유로 당연시하기보다, "정말 이 규칙이 합리적인가?"를 의심하고 자율적 대안을 탐색한다.',
+          },
+          {
+            id: 12,
+            axis: 'JP',
+            axisLabel: 'J / P · 질서와 자율에 대한 태도',
+            scene: '사회적 합의의 마무리',
+            prompt: '여러 의견이 모인 공적 논의가 길어질 때, 어떤 방식으로 결론이 내려지길 바라는 편인가요?',
+            poleA: 'J',
+            labelA: '정해진 기한과 절차 안에 분명한 결론을 도출해 불확실성을 정리하고 다음 실행 단계로 넘어가는 편이 낫다.',
+            poleB: 'P',
+            labelB: '다소 시간이 더 걸리더라도 소수 의견과 새로운 가능성을 섣불리 닫지 않고 열린 논의를 충분히 이어가는 편이 낫다.',
+          },
+          {
+            id: 13,
+            axis: 'EI',
+            axisLabel: 'E / I · 정치 및 사회 참여 방식',
+            scene: '사회적 의제에 목소리 내기',
+            prompt: '중요하게 생각하는 사회 이슈가 생겼을 때, 내가 가장 편안하고 자연스럽게 택하는 참여 방식은 무엇인가요?',
+            poleA: 'I',
+            labelA: '관련 기사나 자료를 꼼꼼히 읽고 혼자 생각을 정리한 뒤, 온라인에 글을 남기거나 조용히 투표로 의사를 표한다.',
+            poleB: 'E',
+            labelB: '주변 사람들과 직접 만나 토론하거나 공청회·집회·캠페인 같은 오프라인 현장에 참여하며 에너지를 얻는다.',
+            isAnchor: true,
+          },
+          {
+            id: 14,
+            axis: 'EI',
+            axisLabel: 'E / I · 정치 및 사회 참여 방식',
+            scene: '의견을 다듬는 자리',
+            prompt: '지지하는 정책이나 사회적 관점에 대해 내 생각이 깊어지고 선명해지는 순간은 주로 언제인가요?',
+            poleA: 'I',
+            labelA: '아무도 방해하지 않는 조용한 시간에 책과 데이터를 비교하며 내면으로 깊이 사유할 때.',
+            poleB: 'E',
+            labelB: '다양한 입장을 가진 사람들과 말로 의견을 주고받고 활기차게 토론을 벌일 때.',
+          },
+          {
+            id: 15,
+            axis: 'EI',
+            axisLabel: 'E / I · 정치 및 사회 참여 방식',
+            scene: '선거와 공적 캠페인 기간',
+            prompt: '선거가 다가오거나 사회적 캠페인이 활발히 벌어지는 시기, 나의 평소 모습에 더 가까운 쪽은 무엇인가요?',
+            poleA: 'I',
+            labelA: '공개적으로 드러내기보다 혼자 공약과 후보의 이력을 차분히 대조해 본 뒤 소신껏 한 표를 행사하는 편이다.',
+            poleB: 'E',
+            labelB: '가족이나 동료들과 이슈에 대해 적극적으로 이야기를 나누고, 뜻을 같이하는 사람들과 연대감을 느끼는 편이다.',
+          },
+          {
+            id: 16,
+            axis: 'EI',
+            axisLabel: 'E / I · 정치 및 사회 참여 방식',
+            scene: '정치적 대화 이후의 피로도',
+            prompt: '여러 사람과 사회 문제나 정책 이슈에 대해 한 시간 넘게 이야기를 나눈 뒤 돌아왔을 때의 기분은 어떠한가요?',
+            poleA: 'I',
+            labelA: '의미 있는 대화였더라도 에너지가 빠르게 소모되어 당분간은 혼자 조용히 뉴스와 거리를 두고 쉬고 싶다.',
+            poleB: 'E',
+            labelB: '서로의 생각을 확인하며 오히려 활력이 돌고, 기회가 되면 더 많은 사람들과 이야기를 이어가고 싶다.',
+          },
+        ];
+
+        const TEMPERAMENT_GROUPS = {
+          NT: {
+            id: 'NT',
+            name: '분석가형',
+            englishName: 'Analysts',
+            tagline: '직관(N)과 사고(T)로 구조적 대안과 합리적 효율을 함께 탐구하는 사유가',
+            description:
+              '체제 변화에 개방적인 직관(N)과 객관적 효율·원칙을 중시하는 사고(T)가 결합해, 사회 제도의 합리성과 경제적 구조를 입체적으로 따져 봅니다.',
+            types: ['INTJ', 'INTP', 'ENTJ', 'ENTP'],
+          },
+          NF: {
+            id: 'NF',
+            name: '외교관형',
+            englishName: 'Diplomats',
+            tagline: '직관(N)과 감정(F)으로 공동체의 의미와 사회적 공감을 잇는 탐구자',
+            description:
+              '새로운 대안을 상상하는 직관(N)과 약자 보호·조화를 중시하는 감정(F)이 만나, 연구상 사회·복지·개혁 의제에 가장 우호적인 경향을 보이는 그룹입니다.',
+            types: ['INFJ', 'INFP', 'ENFJ', 'ENFP'],
+          },
+          SJ: {
+            id: 'SJ',
+            name: '관리자형',
+            englishName: 'Sentinels',
+            tagline: '감각(S)과 판단(J)으로 검증된 제도와 사회의 질서를 지키는 수호자',
+            description:
+              '현실 경험과 안정을 중시하는 감각(S)과 법치·규범을 선호하는 판단(J)이 결합해, 연구상 제도적 안정과 전통적 질서를 중시하는 보수적 가치와 맞닿아 있습니다.',
+            types: ['ISTJ', 'ISFJ', 'ESTJ', 'ESFJ'],
+          },
+          SP: {
+            id: 'SP',
+            name: '탐험가형',
+            englishName: 'Explorers',
+            tagline: '감각(S)과 인식(P)으로 현실의 실용성과 개인의 자유를 중시하는 실행가',
+            description:
+              '구체적 현실에 기반한 감각(S)과 자율성·유연성을 추구하는 인식(P)이 어우러져, 이념적 교조보다 실용적 결과와 개인의 자유로운 선택을 우선합니다.',
+            types: ['ISTP', 'ISFP', 'ESTP', 'ESFP'],
+          },
+        };
+
+        const MBTI_PROFILES = {
+          INTJ: {
+            code: 'INTJ',
+            group: 'NT',
+            title: '고요한 건축가',
+            subtitle: '장기적인 시야로 본질의 구조를 설계하는 전략가',
+            quote: '“충분히 사유된 구조는 불필요한 소음을 견디고 끝내 제 자리를 찾는다.”',
+            overview: '겉으로는 과묵하고 차분해 보이지만, 머릿속에서는 늘 거대한 설계도가 정교하게 돌아가고 있습니다. 단기적인 유행이나 타인의 시선에 흔들리기보다, 스스로 세운 기준과 장기적인 방향성을 따라 묵묵히 완결성을 끌어올립니다.',
+            keywords: ['통찰력', '독립적 사고', '체계화'],
+            strengths: ['복잡한 문제의 핵심 원인을 빠르게 짚어내고 장기 전략을 수립합니다.', '감정에 휩쓸리지 않고 높은 완성도를 향한 자기 기준을 유지합니다.', '혼자서도 방대한 지식을 연결해 새로운 시스템으로 재구성합니다.'],
+            blindSpots: ['완벽한 논리가 서기 전까지 타인의 감정적 공감을 건너뛰기 쉽습니다.', '스스로에 대한 기준이 높아 타인의 비효율에 쉽게 피로감을 느낄 수 있습니다.'],
+            workStyle: '명확한 목표와 자율성이 보장될 때 최고의 성과를 냅니다. 불필요한 회의보다 깊이 있는 문서화와 본질적인 문제 해결에 에너지를 씁니다.',
+            relationshipStyle: '좁고 깊은 관계를 선호합니다. 말수는 적어도 신뢰가 쌓인 사람에게는 현실적인 조언과 변함없는 충실함으로 마음을 표현합니다.',
+            politicalInsight: {
+              orientationTag: '구조 개혁(N) · 합리적 효율(T) · 체계(J)의 결합',
+              valueFocus: '직관(N)으로 낡은 체제의 한계를 개선하려는 개혁 성향을 보이면서도, 사고(T)와 판단(J)의 영향으로 경제적 효율성과 명확한 원칙·법치를 함께 요구하는 복합적 스펙트럼을 띱니다.',
+              participationMode: '내향(I) 기반의 독자적 자료 분석과 조용한 투표·장문 비평 선호',
+            },
+            bestMatches: ['ENFP', 'ENTP'],
+            growthMatch: 'ESFP',
+          },
+          INTP: {
+            code: 'INTP',
+            group: 'NT',
+            title: '사유의 실험가',
+            subtitle: '당연한 전제를 의심하고 원리를 탐구하는 이론가',
+            quote: '“왜라는 질문이 멈추지 않는 한, 세계는 언제든 다시 해석될 수 있다.”',
+            overview: '세상을 하나의 거대한 퍼즐처럼 바라보며, 현상 이면에 숨은 논리적 모순과 법칙을 찾아내는 데 깊은 즐거움을 느낍니다. 관습이나 권위보다 합리적 근거를 중시하며, 혼자 사색에 잠겨 아이디어를 벼리는 시간이 꼭 필요합니다.',
+            keywords: ['호기심', '객관성', '유연한 분석'],
+            strengths: ['고정관념에서 벗어나 독창적인 관점과 해법을 제시합니다.', '감정적 편견 없이 상황의 논리적 허점을 정확하게 발견합니다.', '관심 있는 분야에 몰입하면 누구보다 깊이 있는 전문성을 축적합니다.'],
+            blindSpots: ['아이디어를 완벽히 다듬으려다 실행이나 마무리가 늦어질 때가 있습니다.', '일상적인 반복 업무나 사소한 행정 절차를 번거롭게 느끼기 쉽습니다.'],
+            workStyle: '정형화된 매뉴얼보다 스스로 원리를 파악하고 실험할 수 있는 환경에서 빛납니다. 지적 자극을 주고받을 수 있는 동료와 함께할 때 즐겁습니다.',
+            relationshipStyle: '서로의 독립성을 존중하는 담백한 관계를 편안해합니다. 취향이나 관심사가 통하는 대화가 이어질 때 깊은 유대감을 느낍니다.',
+            politicalInsight: {
+              orientationTag: '대안 탐색(N) · 논리 중심(T) · 개인 자율(P)의 결합',
+              valueFocus: '직관(N)과 인식(P)이 맞물려 기존 권위와 관습을 비판적으로 성찰하며 개인의 자유를 중시하되, 정책 판단에서는 사고(T) 성향에 따라 논리적 일관성과 시장·효율 근거를 엄격히 따집니다.',
+              participationMode: '내향(I) 성향으로 쟁점의 구조를 혼자 검증한 뒤 온라인 글이나 투표로 의사 표명',
+            },
+            bestMatches: ['ENTJ', 'ENFJ'],
+            growthMatch: 'ESFJ',
+          },
+          ENTJ: {
+            code: 'ENTJ',
+            group: 'NT',
+            title: '단호한 지휘관',
+            subtitle: '비전을 현실의 질서로 엮어내는 추진력의 리더',
+            quote: '“가능성을 보았다면, 이제 그것을 작동하게 만들 구조를 세울 차례다.”',
+            overview: '모호한 상태를 오래 두지 않고 목표를 선명하게 정의한 뒤 실행으로 옮기는 데 능숙합니다. 사람과 자원의 강점을 빠르게 파악해 적재적소에 배치하며, 어려운 과제일수록 오히려 집중력과 결단력이 또렷해집니다.',
+            keywords: ['추진력', '전략적 결단', '목표 지향'],
+            strengths: ['위기 상황에서도 중심을 잡고 명확한 의사결정을 내립니다.', '비효율적인 절차를 걷어내고 조직 전체의 속도와 완성도를 높입니다.', '장기적 비전을 구체적인 실행 단계로 쪼개어 팀을 이끕니다.'],
+            blindSpots: ['목표 달성에 몰두하다 주변 사람들의 속도나 정서적 피로를 놓칠 수 있습니다.', '자신의 판단에 대한 확신이 강해 다른 시각의 반론을 차갑게 대할 수 있습니다.'],
+            workStyle: '권한과 책임이 분명한 환경에서 탁월한 리더십을 발휘합니다. 실질적인 임팩트가 보이는 도전적인 프로젝트를 선호합니다.',
+            relationshipStyle: '상대의 성장을 진심으로 응원하며 솔직하고 명쾌한 소통을 합니다. 함께 미래를 그려나갈 수 있는 주체적인 파트너에게 끌립니다.',
+            politicalInsight: {
+              orientationTag: '거시적 비전(N) · 성과와 효율(T) · 명확한 질서(J)',
+              valueFocus: '새로운 전략과 변화(N)를 주저하지 않으면서도, 경제·정책 영역에서는 사고(T)와 판단(J)의 특성이 드러나 합리적 경쟁, 공정한 규칙, 분명한 국가 시스템과 리더십을 중시합니다.',
+              participationMode: '외향(E) 성향으로 공적 토론이나 조직적 활동에서 주도적으로 의견을 개진',
+            },
+            bestMatches: ['INTP', 'INFP'],
+            growthMatch: 'ISFP',
+          },
+          ENTP: {
+            code: 'ENTP',
+            group: 'NT',
+            title: '유쾌한 발명가',
+            subtitle: '경계를 넘나들며 새로운 조합을 실험하는 아이디어 메이커',
+            quote: '“정답이 하나라고 믿는 순간, 가장 흥미로운 질문들이 사라진다.”',
+            overview: '서로 무관해 보이는 개념들을 연결해 기발한 가능성을 열어젖히는 재능이 있습니다. 토론을 통해 생각이 날카로워지는 과정을 즐기며, 꽉 막힌 상황에서도 유머와 재치로 새로운 돌파구를 찾아냅니다.',
+            keywords: ['발상의 전환', '지적 유희', '적응력'],
+            strengths: ['기존의 틀을 깨는 참신한 아이디어와 기획력을 빠르게 쏟아냅니다.', '변화무쌍한 환경에서도 기민하게 방향을 틀어 기회를 포착합니다.', '상대의 논리를 존중하면서도 날카로운 질문을 던져 논의를 확장합니다.'],
+            blindSpots: ['새로운 흥미가 생기면 진행하던 일의 마무리가 느슨해질 수 있습니다.', '지적 호기심에서 던진 반론이 상대에게는 논쟁이나 공격으로 비칠 수 있습니다.'],
+            workStyle: '새로운 판을 짜고 초기 방향을 설계하는 기획 단계에서 가장 빛납니다. 꼼꼼한 실행을 뒷받침해 줄 파트너와 협업할 때 시너지가 큽니다.',
+            relationshipStyle: '재치 있는 대화와 지적인 티키타카를 중요시합니다. 일상을 지루하지 않게 만드는 활력소이자 솔직한 친구 같은 연애를 추구합니다.',
+            politicalInsight: {
+              orientationTag: '체제 혁신(N) · 자유로운 토론(T) · 규범 유연성(P)',
+              valueFocus: '직관(N)과 인식(P)이 결합해 낡은 관습이나 교조적 권위에 의문을 제기하는 개방적·자유주의 성향을 띠며, 사고(T)를 통해 이념 진영과 무관하게 정책의 논리적 허점을 날카롭게 짚습니다.',
+              participationMode: '외향(E) 성향의 활발한 공개 토론, 다각적 쟁점 논쟁 참여 선호',
+            },
+            bestMatches: ['INFJ', 'INTJ'],
+            growthMatch: 'ISFJ',
+          },
+          INFJ: {
+            code: 'INFJ',
+            group: 'NF',
+            title: '통찰하는 조율자',
+            subtitle: '보이지 않는 마음의 결을 읽고 의미를 빚어내는 안내자',
+            quote: '“조용히 건네는 한 문장이, 누군가의 계절을 통째로 바꾸기도 한다.”',
+            overview: '겉으로 드러난 말보다 그 이면에 담긴 진심과 맥락을 예민하게 포착합니다. 차분하고 온화한 태도를 지녔지만 내면에는 단단한 신념과 가치관이 자리 잡고 있어, 옳다고 믿는 방향을 향해 조용하지만 끈기 있게 나아갑니다.',
+            keywords: ['깊은 통찰', '신념', '섬세한 공감'],
+            strengths: ['사람의 마음과 상황의 흐름을 입체적으로 이해해 균형 잡힌 조언을 건넵니다.', '눈앞의 이익보다 장기적인 의미와 윤리적 가치를 끝까지 지킵니다.', '조용한 집중력으로 복잡한 정서를 글이나 기획으로 정제해 냅니다.'],
+            blindSpots: ['타인의 감정을 지나치게 떠안아 혼자서 조용히 번아웃에 빠지기 쉽습니다.', '기대와 다른 현실을 마주하면 말없이 마음을 닫아버리는 경향이 있습니다.'],
+            workStyle: '내가 하는 일이 누군가에게 실질적인 의미나 선한 영향을 준다고 느낄 때 깊은 몰입감을 발휘합니다. 조용하고 신뢰할 수 있는 소규모 협업이 잘 맞습니다.',
+            relationshipStyle: '가벼운 스몰토크보다 영혼이 닿는 깊은 대화를 갈망합니다. 한 번 마음을 연 사람에게는 세심한 배려와 진정성으로 오래 곁을 지킵니다.',
+            politicalInsight: {
+              orientationTag: '미래 가치(N) · 사회적 공감(F) · 원칙적 질서(J)',
+              valueFocus: '직관(N)과 감정(F)의 결합으로 사회 구조의 개선과 약자 보호, 복지·공동체 가치에 깊이 공감하는 진보적 지향과 닿아 있으면서도, 판단(J) 성향으로 인해 제도의 일관성과 도덕적 책임도 함께 강조합니다.',
+              participationMode: '내향(I) 성향으로 깊이 숙고한 글쓰기, 조용한 투표와 가치 연대 선호',
+            },
+            bestMatches: ['ENFP', 'ENTP'],
+            growthMatch: 'ESTP',
+          },
+          INFP: {
+            code: 'INFP',
+            group: 'NF',
+            title: '진심의 서정가',
+            subtitle: '자기만의 고유한 가치와 감성의 언어를 지켜내는 몽상가',
+            quote: '“세상의 속도에 맞추기보다, 내 안의 진실한 박자를 잃지 않는 편을 택한다.”',
+            overview: '풍부한 상상력과 섬세한 감수성을 바탕으로 일상의 작은 장면에서도 고유한 의미를 길어 올립니다. 남들이 다 가는 길이라도 내 마음이 납득하지 못하면 쉽게 움직이지 않으며, 진정성이 느껴지는 순간에는 누구보다 깊은 열정을 보입니다.',
+            keywords: ['진정성', '감수성', '내면의 가치'],
+            strengths: ['타인의 아픔과 기쁨을 편견 없이 받아들이는 따뜻한 포용력이 있습니다.', '독특한 정서와 은유를 담은 창작, 글쓰기, 표현 영역에서 강점을 보입니다.', '세속적 기준에 휩쓸리지 않고 나만의 윤리와 취향을 지켜냅니다.'],
+            blindSpots: ['현실적인 마감이나 갈등 상황 앞에서 회피하거나 지나치게 자책할 수 있습니다.', '이상적인 기준이 높아 실제 실행을 시작하기까지 망설임이 길어질 수 있습니다.'],
+            workStyle: '개인의 개성과 자율성이 존중되는 환경에서 창의력이 살아납니다. 숫자와 경쟁만을 앞세우는 조직보다 가치 중심의 프로젝트에 몰입합니다.',
+            relationshipStyle: '상대의 있는 그대로를 존중하며 다정하고 헌신적인 태도를 보입니다. 말하지 않아도 정서적 결이 통하는 고요한 유대를 소중히 여깁니다.',
+            politicalInsight: {
+              orientationTag: '이상적 대안(N) · 약자 공감(F) · 개인 자유(P)',
+              valueFocus: '연구상 진보·자유주의적 지표(N·F·P)가 모두 모여 있는 조합으로, 인권·복지·소수자 배려와 개인의 내면적 자유가 억압받지 않는 포용적 사회를 이상적으로 여기는 경향이 뚜렷합니다.',
+              participationMode: '내향(I) 성향으로 온라인 서명·창작·개인적 성찰을 통한 차분한 참여 선호',
+            },
+            bestMatches: ['ENFJ', 'ENTJ'],
+            growthMatch: 'ESTJ',
+          },
+          ENFJ: {
+            code: 'ENFJ',
+            group: 'NF',
+            title: '따뜻한 선도자',
+            subtitle: '사람의 가능성을 일깨워 함께 성장하는 분위기를 만드는 촉진자',
+            quote: '“혼자 빨리 가는 성취보다, 서로의 잠재력이 피어나는 순간을 더 오래 기억한다.”',
+            overview: '주변 사람들의 표정과 분위기를 민감하게 살피며 모두가 자연스럽게 어우러질 수 있도록 다리를 놓습니다. 타인의 강점을 누구보다 먼저 알아보고 진심 어린 격려를 건네며, 공동의 선한 목표를 향해 사람들을 모으는 힘이 큽니다.',
+            keywords: ['포용적 리더십', '소통', '선한 영향력'],
+            strengths: ['타인의 동기를 이끌어내고 팀의 사기를 높이는 설득력이 뛰어납니다.', '갈등 속에서도 서로의 입장을 연결해 건설적인 합의를 만들어 냅니다.', '상대에게 꼭 필요한 말과 응원을 적시에 건네는 센스가 탁월합니다.'],
+            blindSpots: ['모두를 만족시키려다 정작 자신의 욕구와 한계를 뒷전으로 미루기 쉽습니다.', '주변의 부정적인 피드백이나 관계의 어긋남에 마음의 상처를 크게 받습니다.'],
+            workStyle: '사람과 사람이 만나는 기획, 교육, 매니징, 커뮤니케이션 분야에서 빛을 발합니다. 신뢰 기반의 팀워크가 형성될 때 에너지가 배가 됩니다.',
+            relationshipStyle: '사랑하는 사람의 일상을 세심하게 챙기며 애정을 아낌없이 표현합니다. 서로의 꿈을 응원하고 함께 성장하는 건강한 파트너십을 지향합니다.',
+            politicalInsight: {
+              orientationTag: '공동체 비전(N) · 복지·조화(F) · 책임 규범(J)',
+              valueFocus: '직관(N)과 감정(F)을 바탕으로 사회 불평등 해소와 공공 복지에 깊은 관심을 두면서도, 판단(J) 성향 덕분에 공동체의 연대와 질서 있는 개혁을 중시하는 편입니다.',
+              participationMode: '외향(E) 성향으로 공익 캠페인, 시민 모임, 대화의 장을 이끄는 참여 선호',
+            },
+            bestMatches: ['INFP', 'ISFP'],
+            growthMatch: 'ISTP',
+          },
+          ENFP: {
+            code: 'ENFP',
+            group: 'NF',
+            title: '다정한 개척자',
+            subtitle: '일상에 생기와 영감을 불어넣으며 사람과 가능성을 잇는 탐구자',
+            quote: '“마음이 뛰는 이야기에는 늘 누군가와 나누고 싶은 온기가 담겨 있다.”',
+            overview: '호기심 어린 시선으로 세상을 바라보며 매 순간 새로운 의미와 즐거움을 발견합니다. 사람들과 금세 마음을 트고 따뜻한 에너지를 나누지만, 내면에는 삶과 관계에 대한 진지하고 깊은 철학을 품고 있는 입체적인 성향입니다.',
+            keywords: ['생동감', '창의적 연결', '공감'],
+            strengths: ['어색한 분위기도 순식간에 부드럽게 만드는 친화력과 유머가 있습니다.', '다양한 사람과 아이디어를 엮어 신선한 프로젝트를 시작하는 힘이 큽니다.', '상대의 고유한 매력을 발견하고 진심으로 반가워해 줍니다.'],
+            blindSpots: ['흥미로운 일이 많아 에너지를 분산시키다 마무리가 버거워질 수 있습니다.', '겉으로 밝아 보여 혼자 감당하는 고민과 피로가 주변에 잘 드러나지 않습니다.'],
+            workStyle: '틀에 박힌 루틴보다 아이디어를 나누고 새로운 시도를 할 수 있는 유연한 환경이 잘 맞습니다. 의미 있는 비전을 동료와 공유할 때 빛납니다.',
+            relationshipStyle: '솔직하고 다정하며 일상에 작은 이벤트를 만들어 내는 데 능숙합니다. 내면의 진지한 고민까지 깊이 나눌 수 있는 상대에게 마음을 줍니다.',
+            politicalInsight: {
+              orientationTag: '새로운 가능성(N) · 공감과 연대(F) · 자유와 다양성(P)',
+              valueFocus: '직관(N)·감정(F)·인식(P) 세 지표가 모두 진보·자유주의적 경향과 맞닿아 있어, 다양성 존중, 권위주의 경계, 사회적 약자를 포용하는 열린 변화를 긍정적으로 바라보는 편입니다.',
+              participationMode: '외향(E) 성향으로 공론장과 커뮤니티, 집회·토론 등 살아있는 연대 참여 선호',
+            },
+            bestMatches: ['INFJ', 'INTJ'],
+            growthMatch: 'ISTJ',
+          },
+          ISTJ: {
+            code: 'ISTJ',
+            group: 'SJ',
+            title: '견고한 기록자',
+            subtitle: '묵묵한 성실함과 정확한 사실로 신뢰를 증명하는 원칙주의자',
+            quote: '“요란한 약속보다 끝까지 지켜진 작은 습관이 결국 가장 멀리 간다.”',
+            overview: '말보다 행동과 결과로 자신을 증명하는 단단한 내면의 소유자입니다. 과거의 경험과 검증된 사실을 토대로 신중하게 판단하며, 한 번 맡은 책임은 어떤 변수가 있어도 묵묵히 끝까지 완수해 내는 믿음직한 기둥 역할을 합니다.',
+            keywords: ['책임감', '정확성', '일관성'],
+            strengths: ['세부 사항을 놓치지 않고 사실에 근거해 안정적으로 일을 처리합니다.', '약속과 마감을 철저히 지켜 주변에 깊은 신뢰감을 줍니다.', '감정적 기복 없이 차분하고 일관된 태도로 기준을 유지합니다.'],
+            blindSpots: ['검증되지 않은 갑작스러운 변화나 모호한 지시에 스트레스를 받기 쉽습니다.', '속마음을 표현하는 데 서툴러 의도와 달리 무뚝뚝하게 보일 수 있습니다.'],
+            workStyle: '체계적인 프로세스와 명확한 역할 분담이 있는 환경에서 최고의 효율을 냅니다. 데이터, 운영, 아카이브, 품질 관리처럼 정밀함이 필요한 일에 강합니다.',
+            relationshipStyle: '화려한 말보다 꾸준한 챙김과 행동으로 마음을 전합니다. 시간이 흐를수록 변치 않는 성실함으로 깊은 안정감을 주는 동반자입니다.',
+            politicalInsight: {
+              orientationTag: '검증된 안정(S) · 공정한 원칙(T) · 법치와 질서(J)',
+              valueFocus: '감각(S)·사고(T)·판단(J) 지표가 모두 보수적 가치관과 높은 상관성을 보이는 조합으로, 급격한 실험보다 검증된 제도, 재정 건전성, 개인의 책임과 법질서의 일관성을 신뢰합니다.',
+              participationMode: '내향(I) 성향으로 공약과 정책 데이터를 꼼꼼히 검증한 뒤 성실히 투표 참여',
+            },
+            bestMatches: ['ESFP', 'ESTP'],
+            growthMatch: 'ENFP',
+          },
+          ISFJ: {
+            code: 'ISFJ',
+            group: 'SJ',
+            title: '세심한 수호자',
+            subtitle: '일상의 온기를 꼼꼼한 배려로 지켜내는 조용한 헌신가',
+            quote: '“누군가의 하루가 조금 더 편안해지는 작은 디테일 속에서 보람을 느낀다.”',
+            overview: '겉으로 내색하지 않으면서도 주변 사람들이 무엇을 필요로 하는지 조용히 기억하고 챙깁니다. 안정적이고 조화로운 일상을 소중히 여기며, 부드러운 태도 이면에는 소중한 사람과 공동체를 지키려는 단단한 책임감이 자리하고 있습니다.',
+            keywords: ['세심한 기억', '조화', '꾸준한 배려'],
+            strengths: ['상대의 취향과 사소한 변화까지 기억해 맞춤형 배려를 실천합니다.', '맡은 역할을 꼼꼼히 챙기며 팀의 빈틈을 소리 없이 메워 줍니다.', '갈등을 키우기보다 차분한 중재로 평온한 분위기를 유지합니다.'],
+            blindSpots: ['거절을 어려워해 무리한 부탁까지 떠안고 혼자 속앓이를 할 수 있습니다.', '익숙한 방식에 안주하다 새로운 시도를 주저하는 경향이 있습니다.'],
+            workStyle: '사람들에게 실질적인 도움이 되고 안정적인 리듬이 보장되는 환경에서 역량을 발휘합니다. 실무 디테일과 협업 지원에서 대체 불가능한 존재가 됩니다.',
+            relationshipStyle: '다정하고 신중하며 오래가는 인연을 소중히 여깁니다. 작은 기념일이나 상대의 컨디션을 기억해 주는 따뜻함으로 깊은 신뢰를 쌓습니다.',
+            politicalInsight: {
+              orientationTag: '생활 안정(S) · 공동체 배려(F) · 규범 존중(J)',
+              valueFocus: '감각(S)과 판단(J)을 통해 사회적 안정과 점진적 질서를 중시하는 한편, 감정(F)의 영향으로 돌봄·안전·생활 밀착형 복지 정책에도 따뜻한 공감을 보내는 온건한 균형을 보입니다.',
+              participationMode: '내향(I) 성향으로 일상 주변의 필요를 살피며 조용하고 신중하게 투표 참여',
+            },
+            bestMatches: ['ESFP', 'ESTP'],
+            growthMatch: 'ENTP',
+          },
+          ESTJ: {
+            code: 'ESTJ',
+            group: 'SJ',
+            title: '명쾌한 관리자',
+            subtitle: '현실의 문제를 정직한 원칙과 실행력으로 정리하는 조직가',
+            quote: '“좋은 생각은 명확한 기준과 실행 일정으로 옮겨질 때 비로소 힘을 갖는다.”',
+            overview: '복잡하게 얽힌 현안을 보고만 있지 않고, 우선순위와 기준을 세워 질서 정연하게 정리해 나갑니다. 공정한 규칙과 약속을 중시하며, 자신의 몫을 다하는 것은 물론 주변도 함께 제 역할을 해낼 수 있도록 분명하게 이끕니다.',
+            keywords: ['현실 감각', '실행 질서', '공정성'],
+            strengths: ['현장의 문제를 빠르게 진단하고 실용적인 해결 절차를 구축합니다.', '책임감이 강해 어려운 상황에서도 흔들림 없이 프로젝트를 완수합니다.', '애매함을 줄이고 명확한 의사소통으로 팀의 혼선을 막아줍니다.'],
+            blindSpots: ['원칙과 효율을 강조하다 타인의 서툰 과정이나 감정을 다그치게 될 수 있습니다.', '정해진 기준 밖의 비정형적 아이디어에 마음을 열기까지 시간이 걸립니다.'],
+            workStyle: '명확한 성과 지표와 현실적인 목표가 주어질 때 에너지가 솟습니다. 프로젝트 매니징, 운영 총괄 등 조직을 단단히 세우는 역할에 탁월합니다.',
+            relationshipStyle: '책임감 있고 든든한 버팀목이 되어 줍니다. 함께 일상과 미래의 계획을 구체적으로 맞춰나가는 현실적이고 진실된 관계를 선호합니다.',
+            politicalInsight: {
+              orientationTag: '현실 실용(S) · 성과와 책임(T) · 법치 질서(J)',
+              valueFocus: '감각(S)·사고(T)·판단(J)이 모두 뚜렷해 검증된 제도, 시장의 공정한 경쟁 규칙, 예측 가능한 법치와 규범을 중시하는 보수적·원칙주의 가치와 강하게 연결되는 경향이 있습니다.',
+              participationMode: '외향(E) 성향으로 지역사회·직능 모임·공개 토론에서 분명하게 의견 피력',
+            },
+            bestMatches: ['ISFP', 'ISTP'],
+            growthMatch: 'INFP',
+          },
+          ESFJ: {
+            code: 'ESFJ',
+            group: 'SJ',
+            title: '다정한 조율자',
+            subtitle: '사람 사이의 온기를 세심한 실천으로 이어가는 공동체의 중심',
+            quote: '“함께 모인 자리가 따뜻하고 편안하다면, 그날의 수고는 충분히 값지다.”',
+            overview: '주변 사람들과 정서적으로 연결되어 있을 때 가장 큰 활력을 얻습니다. 모임의 분위기를 세심히 살피고 누구도 소외되지 않도록 챙기며, 추상적인 이상보다 지금 당장 상대에게 도움이 되는 구체적인 친절로 마음을 표현합니다.',
+            keywords: ['환대', '실천적 배려', '공동체 감각'],
+            strengths: ['타인의 감정과 필요를 빠르게 읽어내어 편안한 분위기를 조성합니다.', '협력적인 태도와 성실함으로 사람들을 자연스럽게 하나로 모읍니다.', '주변의 경조사와 약속을 살뜰히 챙기며 두터운 인연을 이어갑니다.'],
+            blindSpots: ['타인의 평가나 관계의 갈등에 지나치게 신경 쓰며 에너지를 소진할 수 있습니다.', '합의와 조화를 우선하다 보니 꼭 필요한 쓴소리를 망설일 때가 있습니다.'],
+            workStyle: '사람들과 호흡을 맞추며 구체적인 결과물을 만들어 가는 협업 환경에서 빛납니다. 고객 경험, 커뮤니티, 인사·조율 역할에서 강점을 보입니다.',
+            relationshipStyle: '표현이 풍부하고 상대의 일상을 살뜰하게 보살핍니다. 서로의 감사와 애정을 솔직하게 주고받는 따뜻한 관계에서 큰 행복을 느낍니다.',
+            politicalInsight: {
+              orientationTag: '공동체 전통(S) · 관계와 돌봄(F) · 사회적 규범(J)',
+              valueFocus: '감각(S)과 판단(J)으로 검증된 공동체 질서와 전통적 유대를 소중히 여기면서도, 감정(F) 지표에 따라 지역 복지·가족 지원·사회적 화목에 깊은 관심을 기울이는 편입니다.',
+              participationMode: '외향(E) 성향으로 이웃·커뮤니티와의 대화를 통해 자연스럽게 여론에 참여',
+            },
+            bestMatches: ['ISFP', 'ISTP'],
+            growthMatch: 'INTP',
+          },
+          ISTP: {
+            code: 'ISTP',
+            group: 'SP',
+            title: '침착한 장인',
+            subtitle: '군더더기 없는 시선으로 작동의 원리를 파악하는 해결사',
+            quote: '“긴 설명보다 직접 만져보고 움직여 보는 편이 언제나 더 빠르고 정확하다.”',
+            overview: '불필요한 형식이나 과장된 수식을 걷어내고 사물과 상황의 핵심만 담백하게 바라봅니다. 평소에는 조용히 자기만의 세계를 즐기지만, 예기치 못한 문제가 터지면 누구보다 냉정하고 민첩하게 도구를 다뤄 상황을 수습합니다.',
+            keywords: ['실용적 분석', '침착함', '자율성'],
+            strengths: ['돌발 상황에서도 당황하지 않고 가장 효율적인 돌파구를 찾아냅니다.', '손재주와 도구 활용 능력이 뛰어나 실무적인 완성도를 빠르게 높입니다.', '타인을 불필요하게 간섭하지 않으며 각자의 영역을 존중합니다.'],
+            blindSpots: ['내면의 생각이나 감정을 말로 설명하는 과정을 번거롭게 느껴 오해를 살 수 있습니다.', '단기적 흥미가 떨어지면 장기적인 유지·관리에 쉽게 권태를 느낍니다.'],
+            workStyle: '과도한 간섭 없이 명확한 문제 해결 과제가 주어질 때 최상의 집중력을 발휘합니다. 기술, 디자인 엔지니어링, 위기 대응 영역에 잘 맞습니다.',
+            relationshipStyle: '구속하지 않고 각자의 시간을 존중하는 편안한 관계를 좋아합니다. 말 대신 실질적인 도움을 주거나 취미를 함께 공유하며 가까워집니다.',
+            politicalInsight: {
+              orientationTag: '현실 실용(S) · 합리적 효율(T) · 개인 자율(P)',
+              valueFocus: '감각(S)과 사고(T)의 영향으로 이념적 구호보다 당장 작동하는 실용성과 개인 책임을 중시하면서도, 인식(P) 성향 덕분에 불필요한 규제나 권위적 간섭을 경계하는 자유주의적 실리파에 가깝습니다.',
+              participationMode: '내향(I) 성향으로 소음과 선동을 피해 실익을 따져 조용히 투표 참여',
+            },
+            bestMatches: ['ESFJ', 'ESTJ'],
+            growthMatch: 'ENFJ',
+          },
+          ISFP: {
+            code: 'ISFP',
+            group: 'SP',
+            title: '고요한 예술가',
+            subtitle: '지금 이 순간의 감각과 아름다움을 섬세히 길어 올리는 관찰자',
+            quote: '“거창한 선언보다 오늘 마주한 빛과 온도를 온전히 느끼는 삶이 좋다.”',
+            overview: '부드럽고 온화한 태도로 사람과 공간을 대하지만, 내면에는 자신만의 미적 기준과 뚜렷한 호불호를 간직하고 있습니다. 억지스러운 경쟁이나 과시보다 자연스러운 흐름 속에서 자신만의 색채가 담긴 일상을 가꾸는 데 마음을 씁니다.',
+            keywords: ['미적 감각', '유연한 온기', '현재의 몰입'],
+            strengths: ['색감, 소리, 공간의 분위기 등 오감의 디테일을 섬세하게 포착합니다.', '선입견 없이 상대의 고유한 모습을 있는 그대로 받아들입니다.', '갈등을 피하면서도 자신이 아끼는 가치와 영역은 조용히 지켜냅니다.'],
+            blindSpots: ['먼 미래를 대비한 장기 계획이나 딱딱한 자기PR을 부담스러워합니다.', '불편한 감정을 바로 말하지 않고 삭이다가 조용히 거리를 둘 수 있습니다.'],
+            workStyle: '개인의 감각과 자율성이 존중되는 환경에서 특유의 디테일이 살아납니다. 시각 예술, 공예, 브랜딩, 큐레이션처럼 감각을 다루는 일에 강합니다.',
+            relationshipStyle: '다정하고 배려 깊으며 상대가 편안함을 느끼도록 배려합니다. 거창한 이벤트보다 소소한 일상을 함께 거닐며 마음을 나누는 관계를 좋아합니다.',
+            politicalInsight: {
+              orientationTag: '생활 체감(S) · 따뜻한 공감(F) · 일상의 자율(P)',
+              valueFocus: '감각(S)으로 삶의 현실적 안정과 감각을 살피면서도, 감정(F)과 인식(P)의 영향으로 타인의 아픔에 대한 공감과 각자의 개성이 존중받는 자유로운 일상을 중요하게 생각합니다.',
+              participationMode: '내향(I) 성향으로 갈등적인 논쟁보다 개인적 신념에 따른 조용한 참여 선호',
+            },
+            bestMatches: ['ENFJ', 'ESFJ', 'ESTJ'],
+            growthMatch: 'ENTJ',
+          },
+          ESTP: {
+            code: 'ESTP',
+            group: 'SP',
+            title: '대담한 현장가',
+            subtitle: '움직이는 현실 속에서 기회를 포착하는 민첩한 행동가',
+            quote: '“책상 위에서 열 번 고민할 시간에, 현장에 나가 한 번 부딪혀 보는 편이 낫다.”',
+            overview: '지금 눈앞에서 벌어지는 생생한 현실에 누구보다 빠르게 반응합니다. 복잡한 이론보다 실전 감각을 신뢰하며, 대담한 실행력과 유쾌한 순발력으로 팽팽한 협상이나 낯선 환경도 자기 편으로 끌어당기는 매력이 있습니다.',
+            keywords: ['즉각적 실행', '실전 감각', '담대함'],
+            strengths: ['변화하는 판세를 순식간에 읽고 과감하게 기회를 잡습니다.', '어려운 문제 앞에서도 주저하지 않고 몸으로 부딪혀 해답을 찾습니다.', '솔직하고 시원시원한 태도로 주변에 역동적인 활력을 불어넣습니다.'],
+            blindSpots: ['눈앞의 효율과 자극에 집중하다 장기적인 리스크나 여파를 간과할 수 있습니다.', '직설적인 화법이 섬세한 성향의 사람에게는 다소 거칠게 들릴 수 있습니다.'],
+            workStyle: '속도감 있게 결과를 확인하고 현장과 직접 맞닿아 있는 환경에서 탁월합니다. 비즈니스 개발, 세일즈, 퍼포먼스, 현장 기획 등에서 두각을 나타냅니다.',
+            relationshipStyle: '솔직하고 유쾌하며 함께 액티비티나 새로운 경험을 즐기는 연애를 선호합니다. 뒤끝 없이 깔끔한 소통과 생동감 있는 일상을 만들어 갑니다.',
+            politicalInsight: {
+              orientationTag: '현장 실용(S) · 시장과 성과(T) · 유연한 자율(P)',
+              valueFocus: '추상적 이념 논쟁보다 실질적 경제 성과와 현실 작동 여부(S·T)를 따지며, 동시에 인식(P) 특유의 유연함으로 규제를 줄이고 자유롭게 시도할 수 있는 역동적 환경을 선호하는 편입니다.',
+              participationMode: '외향(E) 성향으로 현장에서 직접 부딪히며 즉각적으로 의견을 나누는 참여 선호',
+            },
+            bestMatches: ['ISFJ', 'ISTJ'],
+            growthMatch: 'INFJ',
+          },
+          ESFP: {
+            code: 'ESFP',
+            group: 'SP',
+            title: '빛나는 순간가',
+            subtitle: '일상의 온도와 즐거움을 사람들과 함께 나누는 에너지 메이커',
+            quote: '“오늘 우리가 함께 웃은 기억이야말로 삶을 움직이는 가장 확실한 힘이다.”',
+            overview: '주변의 공기를 밝히고 곁에 있는 사람들이 지금 이 순간을 온전히 즐길 수 있도록 만드는 따뜻한 에너지를 지녔습니다. 눈치가 빠르고 감각이 열려 있어 트렌드와 사람들의 기분을 자연스럽게 읽어내며, 일상을 풍요롭게 가꿉니다.',
+            keywords: ['현재의 활력', '센스', '따뜻한 친화력'],
+            strengths: ['어떤 자리에서도 어색함을 녹이고 사람들을 즐겁게 연결합니다.', '실용적인 센스와 미적 감각으로 일상의 경험을 매력적으로 빚어냅니다.', '어려운 상황에서도 긍정적인 면을 찾아내어 주변에 용기를 줍니다.'],
+            blindSpots: ['혼자서 지루한 반복 작업을 처리하거나 장기 계획을 세우는 데 쉽게 지칩니다.', '주변의 즐거움을 챙기느라 진지한 갈등이나 미래의 문제를 미뤄둘 수 있습니다.'],
+            workStyle: '사람들과 활기차게 소통하고 즉각적인 반응이 돌아오는 환경에서 빛납니다. 콘텐츠, 호스피탈리티, 이벤트, 퍼포먼스 영역에서 강점을 보입니다.',
+            relationshipStyle: '애정 표현이 솔직하고 다정하며 상대를 웃게 만드는 데 재능이 있습니다. 함께 맛있는 것을 먹고 계절의 변화를 나누는 다채로운 관계를 사랑합니다.',
+            politicalInsight: {
+              orientationTag: '체감 현실(S) · 사람 중심 공감(F) · 열린 유연성(P)',
+              valueFocus: '어려운 이론보다 지금 우리 이웃의 삶이 실질적으로 나아지는가(S·F)에 반응하며, 인식(P) 성향에 따라 딱딱한 규범보다 자유롭고 포용적인 일상 문화를 선호합니다.',
+              participationMode: '외향(E) 성향으로 사람들과 어울리는 캠페인이나 열린 공론장 참여 선호',
+            },
+            bestMatches: ['ISFJ', 'ISTJ'],
+            growthMatch: 'INTJ',
+          },
+        };
+
+        const CHOICE_OPTIONS = [
+          { value: -2, keyHint: '1', label: '확실히 A', sub: '내 모습과 매우 가깝다' },
+          { value: -1, keyHint: '2', label: '대체로 A', sub: '조금 더 A 쪽에 기운다' },
+          { value: 1, keyHint: '3', label: '대체로 B', sub: '조금 더 B 쪽에 기운다' },
+          { value: 2, keyHint: '4', label: '확실히 B', sub: '내 모습과 매우 가깝다' },
+        ];
+
+        const state = {
+          view: 'home',
+          answers: {},
+          currentIndex: 0,
+          activeRecord: null,
+          history: loadHistory(),
+          archiveTab: 'types',
+          archiveFilter: 'ALL',
+          modalTypeCode: null,
+          copied: false,
+        };
+
+        function esc(str) {
+          return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+        }
+
+        function loadHistory() {
+          try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (!raw) return [];
+            const parsed = JSON.parse(raw);
+            return Array.isArray(parsed) ? parsed : [];
+          } catch {
+            return [];
+          }
+        }
+
+        function saveHistory(record) {
+          const next = [record, ...state.history.filter((x) => x.id !== record.id)].slice(0, 10);
+          state.history = next;
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+          } catch {}
+        }
+
+        function clearHistory() {
+          state.history = [];
+          try {
+            localStorage.removeItem(STORAGE_KEY);
+          } catch {}
+        }
+
+        function calculatePoliticalTendency(axes) {
+          const getAxis = (k) => axes.find((a) => a.axis === k);
+          const sn = getAxis('SN');
+          const tf = getAxis('TF');
+          const jp = getAxis('JP');
+          const ei = getAxis('EI');
+
+          const changeOpennessPercent = sn ? sn.rightPercent : 50;
+          const empathyWelfarePercent = tf ? tf.rightPercent : 50;
+          const autonomyFlexibilityPercent = jp ? jp.rightPercent : 50;
+          const activeEngagementPercent = ei ? ei.rightPercent : 50;
+
+          const overallSpectrumScore = Math.round(
+            changeOpennessPercent * 0.45 +
+              empathyWelfarePercent * 0.3 +
+              autonomyFlexibilityPercent * 0.25
+          );
+
+          let spectrumLabel = '균형적 중도 스펙트럼';
+          let spectrumDescription =
+            '안정·원칙 지향 지표(S·T·J)와 변화·공감·자율 지향 지표(N·F·P)가 고르게 공존합니다. 사안에 따라 실용적 안정과 구조적 대안을 유연하게 오가는 경향을 보입니다.';
+
+          if (overallSpectrumScore >= 65) {
+            spectrumLabel = '변화·공감·자율 지향 (진보 성향과 닿아 있는 결)';
+            spectrumDescription =
+              '직관(N)·감정(F)·인식(P) 축의 비중이 높게 나타났습니다. 연구에 따르면 새로운 대안과 체제 개선에 열려 있고(N), 사회적 약자 보호와 복지(F), 개인의 자율성(P)을 중시하는 진보적 가치와 상관관계가 나타나는 편입니다.';
+          } else if (overallSpectrumScore >= 54) {
+            spectrumLabel = '온건 개혁·균형 지향 (중도 진보 측 스펙트럼)';
+            spectrumDescription =
+              '변화와 자율, 공감의 가치에 다소 무게를 두면서도 현실적인 기준을 함께 살피는 편입니다. 의제에 따라 진보적 대안과 실용적 균형점을 함께 고민하는 경향이 나타납니다.';
+          } else if (overallSpectrumScore <= 35) {
+            spectrumLabel = '안정·원칙·질서 지향 (보수 성향과 닿아 있는 결)';
+            spectrumDescription =
+              '감각(S)·사고(T)·판단(J) 축의 비중이 높게 나타났습니다. 연구에 따르면 검증된 제도와 실용적 안정(S), 효율성과 공정한 규칙(T), 명확한 법치와 사회적 규범(J)을 중시하는 보수적 가치와 상관관계가 나타나는 편입니다.';
+          } else if (overallSpectrumScore <= 46) {
+            spectrumLabel = '온건 안정·원칙 지향 (중도 보수 측 스펙트럼)';
+            spectrumDescription =
+              '현실적인 검증과 질서, 효율의 기준에 다소 무게를 두면서도 상황에 따른 유연한 조정을 열어두는 편입니다. 급진적 변화보다 점진적이고 안정적인 보완을 선호하는 경향이 나타납니다.';
+          }
+
+          let participationLabel = '균형형 시민 참여 (상황별 전환)';
+          let participationDescription =
+            '사안의 성격에 따라 혼자 자료를 숙고해 조용히 투표하거나(I), 필요한 자리에서는 직접 대화와 현장에 참여하는(E) 두 방식을 고루 활용합니다.';
+
+          if (activeEngagementPercent >= 58) {
+            participationLabel = '적극 행동형 참여 (외향 E 중심)';
+            participationDescription =
+              '이념적 방향과 별개로, 집회·공개 토론·오프라인 모임처럼 사람들과 직접 부딪히며 목소리를 내는 참여 방식에서 활력을 얻는 경향이 있습니다.';
+          } else if (activeEngagementPercent <= 42) {
+            participationLabel = '차분한 숙고형 참여 (내향 I 중심)';
+            participationDescription =
+              '이념적 방향과 별개로, 자료와 공약을 깊이 살핀 뒤 온라인 의견 개진이나 조용한 투표를 통해 자신의 신념을 표현하는 참여 방식을 선호합니다.';
+          }
+
+          return {
+            changeOpennessPercent,
+            empathyWelfarePercent,
+            autonomyFlexibilityPercent,
+            activeEngagementPercent,
+            overallSpectrumScore,
+            spectrumLabel,
+            spectrumDescription,
+            participationLabel,
+            participationDescription,
+          };
+        }
+
+        function calculateMbtiResult(answers) {
+          const axesResults = AXES_INFO.map((axisInfo) => {
+            const axisQuestions = QUESTIONS.filter((q) => q.axis === axisInfo.key);
+            let leftRaw = 0;
+            let rightRaw = 0;
+            let anchorWinner = axisInfo.leftPole.letter;
+
+            for (const q of axisQuestions) {
+              const val = answers[q.id];
+              if (!val) continue;
+              const absWeight = Math.abs(val);
+              const chosenPole = val < 0 ? q.poleA : q.poleB;
+              if (chosenPole === axisInfo.leftPole.letter) leftRaw += absWeight;
+              else rightRaw += absWeight;
+              if (q.isAnchor) anchorWinner = chosenPole;
+            }
+
+            const total = leftRaw + rightRaw;
+            let leftPercent = 50;
+            let rightPercent = 50;
+            let winner = anchorWinner;
+            let isCloseCall = false;
+
+            if (total > 0) {
+              if (leftRaw === rightRaw) {
+                winner = anchorWinner;
+                isCloseCall = true;
+                if (winner === axisInfo.leftPole.letter) {
+                  leftPercent = 52;
+                  rightPercent = 48;
+                } else {
+                  leftPercent = 48;
+                  rightPercent = 52;
+                }
+              } else {
+                leftPercent = Math.round((leftRaw / total) * 100);
+                rightPercent = 100 - leftPercent;
+                winner = leftRaw > rightRaw ? axisInfo.leftPole.letter : axisInfo.rightPole.letter;
+                isCloseCall = Math.abs(leftPercent - rightPercent) <= 12;
+              }
+            }
+
+            const winnerPercent = winner === axisInfo.leftPole.letter ? leftPercent : rightPercent;
+
+            return {
+              axis: axisInfo.key,
+              title: axisInfo.title,
+              leftPole: axisInfo.leftPole.letter,
+              leftName: axisInfo.leftPole.name,
+              leftPercent,
+              rightPole: axisInfo.rightPole.letter,
+              rightName: axisInfo.rightPole.name,
+              rightPercent,
+              winner,
+              winnerPercent,
+              isCloseCall,
+            };
+          });
+
+          const order = ['EI', 'SN', 'TF', 'JP'];
+          const typeCode = order
+            .map((key) => (axesResults.find((a) => a.axis === key) || {}).winner || '')
+            .join('');
+
+          return {
+            typeCode,
+            axes: axesResults,
+            politicalTendency: calculatePoliticalTendency(axesResults),
+          };
+        }
+
+        function renderLanding() {
+          return `
+            <div class="container">
+              <section class="hero-grid">
+                <div style="display:flex;flex-direction:column;justify-content:space-between;">
+                  <div>
+                    <p class="kicker">성향과 가치관 아카이브 · 16문항 설문 · 소요 시간 약 3분</p>
+                    <h1 class="hero-title">인지의 결로 읽는<br/>나만의 사회적 가치관</h1>
+                    <p style="margin:24px 0 0;max-width:560px;font-size:16px;line-height:1.75;color:#44403C;">
+                      심리학 및 정치학 연구(빅5 성격 모델·MBTI 연계 연구)에 따르면, 성격이 정치적 태도를 완전히 결정하지는 않지만
+                      세상을 해석하는 인지 방식은 특정 가치관과 유의미한 상관관계를 보입니다.
+                      <strong style="color:#1C1917;">결(GYEOL)</strong>은 16개의 사회·정책 질문을 통해 나의 MBTI 지표와 가치 스펙트럼을 함께 살펴봅니다.
+                    </p>
+                  </div>
+                  <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);">
+                    <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                      <button type="button" class="btn-primary" data-action="start">16문항 설문 시작하기 →</button>
+                      <button type="button" class="btn-outline" data-action="archive" data-tab="types">16유형 도감 먼저 보기</button>
+                    </div>
+                    <p style="margin:14px 0 0;font-size:12px;color:var(--ink-muted);">
+                      S/N(변화·안정) · T/F(효율·공감) · J/P(질서·자율) · E/I(참여 방식) 각 4문항씩 구성
+                    </p>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;">
+                  <div class="artwork-frame" style="flex:1;">${ARTWORKS.HERO}</div>
+                  <p class="figure-caption">도판 01 — 인지 지표와 사회적 가치관의 교차점, GYEOL Editorial Lithograph</p>
+                </div>
+              </section>
+
+              <section id="direction" class="section-divider">
+                <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;">
+                  <div>
+                    <p class="kicker">연구 배경 및 설문 설계</p>
+                    <h2 class="section-title">MBTI 지표와 정치 성향의 여섯 가지 연결고리</h2>
+                  </div>
+                  <p style="margin:0;max-width:440px;font-size:14px;color:#57534E;">
+                    성격과 정치 성향의 상관관계는 절대적이지 않은 약한 수준의 경향입니다. 어느 쪽의 우열도 단정하지 않고 네 가지 축의 차이를 객관적으로 살핍니다.
+                  </p>
+                </div>
+                <div class="pillars-grid">
+                  ${SERVICE_PILLARS.map(
+                    (p) => `
+                      <article style="border-top:1px solid var(--border);padding-top:20px;">
+                        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-muted);">
+                          <span class="font-mono tabular-nums">${esc(p.index)}</span>
+                          <span aria-hidden="true">·</span>
+                          <span style="font-weight:600;color:#57534E;">${esc(p.category)}</span>
+                        </div>
+                        <h3 class="font-serif" style="margin:8px 0 0;font-size:20px;font-weight:600;">${esc(p.title)}</h3>
+                        <p style="margin:10px 0 0;font-size:14px;line-height:1.65;color:#44403C;">${esc(p.description)}</p>
+                      </article>
+                    `
+                  ).join('')}
+                </div>
+              </section>
+
+              <section id="axes" class="section-divider">
+                <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;">
+                  <div>
+                    <p class="kicker">핵심 지표별 상관관계</p>
+                    <h2 class="section-title">네 가지 심리 지표와 16개 설문 문항</h2>
+                  </div>
+                  <span class="font-mono tabular-nums" style="font-size:12px;color:var(--ink-muted);">4 AXES × 4 QUESTIONS = 16 ITEMS</span>
+                </div>
+                <div class="axes-grid">
+                  ${AXES_INFO.map(
+                    (axis, idx) => `
+                      <div class="card">
+                        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;border-bottom:1px solid var(--border);padding-bottom:14px;">
+                          <div>
+                            <span class="font-mono" style="font-size:12px;color:#a8a29e;">0${idx + 1}</span>
+                            <h3 class="font-serif" style="margin:4px 0 0;font-size:20px;font-weight:600;">${esc(axis.title)}</h3>
+                          </div>
+                          <span style="font-size:12px;color:var(--ink-muted);">${esc(axis.subtitle)}</span>
+                        </div>
+                        <p style="margin:12px 0 0;font-size:12px;color:var(--ink-muted);">${esc(axis.correlationNote)}</p>
+                        <div class="two-col" style="margin-top:16px;">
+                          <div class="sub-card">
+                            <p style="margin:0;font-size:14px;font-weight:600;">
+                              <span class="font-mono" style="color:var(--accent);">${axis.leftPole.letter}</span> · ${esc(axis.leftPole.name)}
+                            </p>
+                            <p style="margin:6px 0 0;font-size:12px;line-height:1.55;color:#44403C;">${esc(axis.leftPole.summary)}</p>
+                            <p style="margin:8px 0 0;padding-top:8px;border-top:1px solid var(--border);font-size:11px;font-weight:600;color:#57534E;">${esc(axis.leftPole.politicalLink)}</p>
+                          </div>
+                          <div class="sub-card">
+                            <p style="margin:0;font-size:14px;font-weight:600;">
+                              <span class="font-mono" style="color:var(--slate);">${axis.rightPole.letter}</span> · ${esc(axis.rightPole.name)}
+                            </p>
+                            <p style="margin:6px 0 0;font-size:12px;line-height:1.55;color:#44403C;">${esc(axis.rightPole.summary)}</p>
+                            <p style="margin:8px 0 0;padding-top:8px;border-top:1px solid var(--border);font-size:11px;font-weight:600;color:#57534E;">${esc(axis.rightPole.politicalLink)}</p>
+                          </div>
+                        </div>
+                      </div>
+                    `
+                  ).join('')}
+                </div>
+              </section>
+
+              <section style="padding:56px 0 16px;">
+                <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;">
+                  <div>
+                    <p class="kicker">16유형 기질 아카이브</p>
+                    <h2 class="section-title">네 개의 기질 군과 가치관 경향</h2>
+                  </div>
+                  <button type="button" style="font-size:14px;font-weight:500;color:var(--accent);" data-action="archive" data-tab="types">
+                    전체 16유형 도감 열기 →
+                  </button>
+                </div>
+                <div class="groups-grid">
+                  ${Object.values(TEMPERAMENT_GROUPS)
+                    .map(
+                      (g) => `
+                        <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;padding:20px;">
+                          <div>
+                            <div class="artwork-frame" style="aspect-ratio:1/1;">${ARTWORKS[g.id]}</div>
+                            <div style="margin-top:14px;display:flex;gap:8px;font-size:12px;color:var(--ink-muted);">
+                              <span class="font-mono">${g.id}</span>
+                              <span aria-hidden="true">·</span>
+                              <span>${g.englishName}</span>
+                            </div>
+                            <h3 class="font-serif" style="margin:4px 0 0;font-size:20px;font-weight:600;">${esc(g.name)}</h3>
+                            <p style="margin:8px 0 0;font-size:12px;line-height:1.55;color:#57534E;">${esc(g.description)}</p>
+                          </div>
+                          <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;">
+                            ${g.types
+                              .map(
+                                (code) => `
+                                  <button
+                                    type="button"
+                                    class="font-mono"
+                                    style="padding:4px 10px;border-radius:4px;border:1px solid var(--border);background:var(--bg-paper);font-size:12px;font-weight:500;"
+                                    data-action="modal"
+                                    data-code="${code}"
+                                  >${code}</button>
+                                `
+                              )
+                              .join('')}
+                          </div>
+                        </div>
+                      `
+                    )
+                    .join('')}
+                </div>
+              </section>
+            </div>
+          `;
+        }
+
+        function renderQuiz() {
+          const q = QUESTIONS[state.currentIndex];
+          const total = QUESTIONS.length;
+          const answeredCount = Object.keys(state.answers).length;
+          const selected = state.answers[q.id];
+          const allAnswered = answeredCount === total;
+
+          return `
+            <div class="container-narrow" style="padding-top:44px;padding-bottom:44px;">
+              <div style="border-bottom:1px solid var(--border);padding-bottom:20px;">
+                <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+                  <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-muted);">
+                    <span class="font-mono tabular-nums" style="font-weight:600;color:var(--ink);">
+                      ${String(state.currentIndex + 1).padStart(2, '0')} / ${total}
+                    </span>
+                    <span aria-hidden="true">·</span>
+                    <span>${esc(q.axisLabel)}</span>
+                  </div>
+                  <div style="display:flex;gap:16px;font-size:12px;color:var(--ink-muted);">
+                    <button type="button" data-action="start">초기화</button>
+                    <button type="button" data-action="home">나가기</button>
+                  </div>
+                </div>
+
+                <div class="progress-track" role="progressbar" aria-valuenow="${Math.round(((state.currentIndex + 1) / total) * 100)}" aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-fill" style="transform:scaleX(${(state.currentIndex + 1) / total});"></div>
+                </div>
+
+                <div class="step-dots" aria-label="문항 이동">
+                  ${QUESTIONS.map((item, idx) => {
+                    const isAnswered = state.answers[item.id] !== undefined;
+                    const isCurrent = idx === state.currentIndex;
+                    const canJump = isAnswered || idx <= answeredCount;
+                    const cls = isCurrent ? 'current' : isAnswered ? 'answered' : 'disabled';
+                    return `<button type="button" class="step-btn ${cls}" ${canJump ? '' : 'disabled'} data-action="jump" data-idx="${idx}">${String(item.id).padStart(2, '0')}</button>`;
+                  }).join('')}
+                </div>
+              </div>
+
+              <section style="padding-top:32px;">
+                <p style="margin:0;font-size:12px;font-weight:600;color:var(--accent);">사회·가치 장면 — ${esc(q.scene)}</p>
+                <h1 class="font-serif" style="margin:10px 0 0;font-size:clamp(1.5rem, 3vw, 1.875rem);font-weight:600;line-height:1.38;">
+                  ${esc(q.prompt)}
+                </h1>
+
+                <div class="two-col" style="margin-top:28px;">
+                  <div class="card" style="padding:20px;border-color:${selected !== undefined && selected < 0 ? 'var(--accent)' : 'var(--border)'};">
+                    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--ink-muted);">
+                      <span class="font-mono" style="font-weight:600;color:var(--ink);">선택지 A</span>
+                      <span class="font-mono">${q.poleA} 성향</span>
+                    </div>
+                    <p style="margin:12px 0 0;font-size:15px;line-height:1.65;color:var(--ink);">${esc(q.labelA)}</p>
+                  </div>
+
+                  <div class="card" style="padding:20px;border-color:${selected !== undefined && selected > 0 ? 'var(--slate)' : 'var(--border)'};">
+                    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--ink-muted);">
+                      <span class="font-mono" style="font-weight:600;color:var(--ink);">선택지 B</span>
+                      <span class="font-mono">${q.poleB} 성향</span>
+                    </div>
+                    <p style="margin:12px 0 0;font-size:15px;line-height:1.65;color:var(--ink);">${esc(q.labelB)}</p>
+                  </div>
+                </div>
+
+                <div style="margin-top:28px;">
+                  <p style="margin:0;font-size:12px;color:var(--ink-muted);">
+                    가장 가까운 태도를 선택하세요 (키보드 숫자키 <span class="font-mono">1–4</span> 지원)
+                  </p>
+                  <div class="choices-grid">
+                    ${CHOICE_OPTIONS.map((opt) => {
+                      const isSelected = selected === opt.value;
+                      return `
+                        <button type="button" class="choice-btn ${isSelected ? 'selected' : ''}" data-action="choose" data-val="${opt.value}">
+                          <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+                            <span style="font-size:14px;font-weight:600;">${esc(opt.label)}</span>
+                            <span class="font-mono" style="font-size:12px;opacity:0.75;">[${opt.keyHint}]</span>
+                          </div>
+                          <span style="margin-top:4px;font-size:12px;opacity:0.82;">${esc(opt.sub)}</span>
+                        </button>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+              </section>
+
+              <div style="margin-top:36px;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+                <button
+                  type="button"
+                  class="btn-outline"
+                  style="min-height:40px;font-size:12px;${state.currentIndex === 0 ? 'opacity:0.4;cursor:not-allowed;' : ''}"
+                  ${state.currentIndex === 0 ? 'disabled' : ''}
+                  data-action="prev"
+                >← 이전 문항</button>
+
+                ${
+                  allAnswered
+                    ? `<button type="button" class="btn-primary" style="min-height:40px;font-size:12px;" data-action="finish">결과 리포트 보기 →</button>`
+                    : `<button type="button" class="btn-outline" style="min-height:40px;font-size:12px;${selected === undefined || state.currentIndex === total - 1 ? 'opacity:0.4;cursor:not-allowed;' : ''}" ${selected === undefined || state.currentIndex === total - 1 ? 'disabled' : ''} data-action="next">다음 문항 →</button>`
+                }
+              </div>
+            </div>
+          `;
+        }
+
+        function renderResult() {
+          const rec = state.activeRecord;
+          if (!rec) return renderLanding();
+          const profile = MBTI_PROFILES[rec.typeCode] || MBTI_PROFILES.INFJ;
+          const group = TEMPERAMENT_GROUPS[profile.group];
+          const tendency = rec.politicalTendency || calculatePoliticalTendency(rec.axes);
+          const markerPos = Math.min(96, Math.max(4, tendency.overallSpectrumScore));
+
+          return `
+            <div class="container-result" style="padding-top:44px;padding-bottom:44px;">
+              <section class="hero-grid result-hero-grid" style="padding-top:0;">
+                <div style="display:flex;flex-direction:column;justify-content:space-between;">
+                  <div>
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--ink-muted);">
+                      <span>설문 결과 리포트</span>
+                      <span aria-hidden="true">·</span>
+                      <span>${esc(group.name)}</span>
+                      <span aria-hidden="true">·</span>
+                      <span class="font-mono">${esc(profile.keywords.join(' / '))}</span>
+                    </div>
+                    <div style="margin-top:14px;display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;">
+                      <span class="font-mono" style="font-size:44px;font-weight:600;letter-spacing:-0.02em;color:var(--accent);">${profile.code}</span>
+                      <h1 class="font-serif" style="margin:0;font-size:32px;font-weight:600;">${esc(profile.title)}</h1>
+                    </div>
+                    <p style="margin:10px 0 0;font-size:16px;color:var(--ink-sub);">${esc(profile.subtitle)}</p>
+                    <blockquote class="font-serif" style="margin:22px 0 0;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);font-size:18px;font-style:italic;line-height:1.65;">
+                      ${esc(profile.quote)}
+                    </blockquote>
+                    <p style="margin:18px 0 0;font-size:15px;line-height:1.75;color:var(--ink-sub);">${esc(profile.overview)}</p>
+                  </div>
+                  <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;">
+                    <button type="button" class="btn-primary" data-action="copy">${state.copied ? '✓ 결과 요약 복사됨' : '결과 요약 복사하기'}</button>
+                    <button type="button" class="btn-outline" data-action="start">다시 설문하기</button>
+                    <button type="button" class="btn-outline" data-action="archive" data-tab="types">16유형 도감 보기</button>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;">
+                  <div class="artwork-frame" style="flex:1;aspect-ratio:1/1;">${ARTWORKS[group.id]}</div>
+                  <p class="figure-caption">도판 — ${esc(group.name)} (${group.englishName}) · ${esc(group.tagline)}</p>
+                </div>
+              </section>
+
+              <section class="section-divider">
+                <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;">
+                  <div>
+                    <p class="kicker">심리학 · 정치학 연구 기반 상관 해석</p>
+                    <h2 class="section-title">인지 지표와 연결된 가치관·참여 성향</h2>
+                  </div>
+                  <p style="margin:0;font-size:12px;color:var(--ink-muted);">성격은 정치 태도를 결정짓지 않으며, 통계적으로 관찰되는 경향성(약한 상관관계)입니다.</p>
+                </div>
+
+                <div class="hero-grid result-split-12" style="border-bottom:none;padding:28px 0 0;gap:24px;">
+                  <div class="card">
+                    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12px;">
+                      <span style="font-weight:600;color:var(--ink-muted);">가치관 스펙트럼 (S·T·J ↔ N·F·P)</span>
+                      <span class="font-mono tabular-nums" style="color:#57534e;">변화·공감·자율 비중 ${tendency.overallSpectrumScore}%</span>
+                    </div>
+                    <h3 class="font-serif" style="margin:10px 0 0;font-size:21px;font-weight:600;">${esc(tendency.spectrumLabel)}</h3>
+                    <p style="margin:10px 0 0;font-size:14px;line-height:1.65;color:#44403C;">${esc(tendency.spectrumDescription)}</p>
+                    <div style="margin-top:22px;">
+                      <div style="display:flex;justify-content:space-between;font-size:12px;color:#57534e;">
+                        <span>보수적 가치 경향 (S·T·J)</span>
+                        <span>중도 균형</span>
+                        <span>진보적 가치 경향 (N·F·P)</span>
+                      </div>
+                      <div class="spectrum-bar-bg">
+                        <div class="spectrum-marker" style="left:${markerPos}%;"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12px;">
+                      <span style="font-weight:600;color:var(--ink-muted);">정치 참여 방식 (E / I)</span>
+                      <span class="font-mono tabular-nums" style="color:#57534e;">외향(E) ${tendency.activeEngagementPercent}% · 내향(I) ${100 - tendency.activeEngagementPercent}%</span>
+                    </div>
+                    <h3 class="font-serif" style="margin:10px 0 0;font-size:21px;font-weight:600;">${esc(tendency.participationLabel)}</h3>
+                    <p style="margin:10px 0 0;font-size:14px;line-height:1.65;color:#44403C;">${esc(tendency.participationDescription)}</p>
+                    <p style="margin:16px 0 0;padding-top:12px;border-top:1px solid var(--border);font-size:12px;color:var(--ink-muted);">
+                      외향·내향 지표는 진보나 보수 같은 이념적 방향과는 거의 무관하며, 목소리를 내는 방식의 차이로 나타납니다.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section-divider">
+                <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;">
+                  <div>
+                    <p class="kicker">네 가지 심리 축 비율</p>
+                    <h2 class="section-title">16문항 지표별 응답 스펙트럼</h2>
+                  </div>
+                  <p style="margin:0;font-size:12px;color:var(--ink-muted);">각 축 4개 문항의 응답 강도를 합산해 산출한 지표별 비중입니다.</p>
+                </div>
+                <div class="axes-grid">
+                  ${rec.axes
+                    .map((a) => {
+                      const leftWin = a.winner === a.leftPole;
+                      return `
+                        <div class="card">
+                          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+                            <h3 style="margin:0;font-size:14px;font-weight:600;">${esc(a.title)}</h3>
+                            <span style="font-size:12px;color:var(--ink-muted);">${a.isCloseCall ? '양면이 고르게 나타남' : `${a.winner} 성향 우세`}</span>
+                          </div>
+                          <div style="margin-top:14px;display:flex;justify-content:space-between;font-size:14px;">
+                            <div style="${leftWin ? 'font-weight:600;color:var(--ink);' : 'color:var(--ink-muted);'}">
+                              <span class="font-mono">${a.leftPole}</span> · ${esc(a.leftName.split(' ')[0])} <span class="font-mono tabular-nums">${a.leftPercent}%</span>
+                            </div>
+                            <div style="${!leftWin ? 'font-weight:600;color:var(--ink);' : 'color:var(--ink-muted);'}">
+                              <span class="font-mono tabular-nums">${a.rightPercent}%</span> ${esc(a.rightName.split(' ')[0])} · <span class="font-mono">${a.rightPole}</span>
+                            </div>
+                          </div>
+                          <div class="dual-bar">
+                            <div style="width:${a.leftPercent}%;background:${leftWin ? 'var(--accent)' : '#d6d3d1'};"></div>
+                            <div style="width:${a.rightPercent}%;background:${!leftWin ? 'var(--slate)' : '#d6d3d1'};"></div>
+                          </div>
+                        </div>
+                      `;
+                    })
+                    .join('')}
+                </div>
+              </section>
+
+              <section class="section-divider">
+                <div class="two-col" style="gap:36px;">
+                  <div>
+                    <p class="kicker">01 · 핵심 강점</p>
+                    <h2 class="section-title">자연스럽게 발휘되는 힘</h2>
+                    <ul style="list-style:none;padding:0;margin:20px 0 0;">
+                      ${profile.strengths
+                        .map(
+                          (item, idx) => `
+                            <li style="display:flex;gap:12px;border-top:1px solid var(--border);padding:14px 0;font-size:14px;line-height:1.65;">
+                              <span class="font-mono" style="font-size:12px;color:#a8a29e;">0${idx + 1}</span>
+                              <span>${esc(item)}</span>
+                            </li>
+                          `
+                        )
+                        .join('')}
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="kicker">02 · 균형과 맹점</p>
+                    <h2 class="section-title">다른 관점과 만날 때 돌아볼 지점</h2>
+                    <ul style="list-style:none;padding:0;margin:20px 0 0;">
+                      ${profile.blindSpots
+                        .map(
+                          (item, idx) => `
+                            <li style="display:flex;gap:12px;border-top:1px solid var(--border);padding:14px 0;font-size:14px;line-height:1.65;">
+                              <span class="font-mono" style="font-size:12px;color:#a8a29e;">0${idx + 1}</span>
+                              <span>${esc(item)}</span>
+                            </li>
+                          `
+                        )
+                        .join('')}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section class="hero-grid result-split-12" style="border-bottom:none;padding:44px 0 12px;">
+                <div>
+                  <h3 style="margin:0;font-size:12px;font-weight:600;color:var(--ink-muted);">${profile.code} 유형의 사회적 가치관 특성</h3>
+                  <p style="margin:10px 0 0;font-size:15px;line-height:1.75;">${esc(profile.politicalInsight.valueFocus)}</p>
+                  <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border);">
+                    <h3 style="margin:0;font-size:12px;font-weight:600;color:var(--ink-muted);">일하는 방식과 관계의 결</h3>
+                    <p style="margin:10px 0 0;font-size:15px;line-height:1.75;">${esc(profile.workStyle)} ${esc(profile.relationshipStyle)}</p>
+                  </div>
+                </div>
+                <div class="card">
+                  <h3 style="margin:0;font-size:12px;font-weight:600;color:var(--ink-muted);">시너지가 흐르는 유형</h3>
+                  <p style="margin:8px 0 0;font-size:12px;color:#57534E;">유형 코드를 누르면 상세 프로필과 가치관 경향을 바로 확인할 수 있습니다.</p>
+                  <div style="margin-top:18px;display:flex;flex-direction:column;gap:8px;">
+                    <p style="margin:0;font-size:12px;color:var(--ink-muted);">결이 잘 맞는 유형</p>
+                    ${profile.bestMatches
+                      .map(
+                        (m) => `
+                          <button type="button" class="sub-card" style="display:flex;justify-content:space-between;align-items:center;width:100%;" data-action="modal" data-code="${m}">
+                            <div>
+                              <span class="font-mono" style="font-weight:600;color:var(--accent);">${m}</span>
+                              <span style="margin-left:8px;font-size:14px;font-weight:500;">${esc((MBTI_PROFILES[m] || {}).title || '')}</span>
+                            </div>
+                            <span>→</span>
+                          </button>
+                        `
+                      )
+                      .join('')}
+                    <p style="margin:10px 0 0;padding-top:12px;border-top:1px solid var(--border);font-size:12px;color:var(--ink-muted);">새로운 시각을 주는 유형</p>
+                    <button type="button" class="sub-card" style="display:flex;justify-content:space-between;align-items:center;width:100%;" data-action="modal" data-code="${profile.growthMatch}">
+                      <div>
+                        <span class="font-mono" style="font-weight:600;">${profile.growthMatch}</span>
+                        <span style="margin-left:8px;font-size:14px;font-weight:500;">${esc((MBTI_PROFILES[profile.growthMatch] || {}).title || '')}</span>
+                      </div>
+                      <span>→</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          `;
+        }
+
+        function renderArchive() {
+          const all = Object.values(MBTI_PROFILES);
+          const filtered = state.archiveFilter === 'ALL' ? all : all.filter((p) => p.group === state.archiveFilter);
+          const filters = [
+            { id: 'ALL', label: '전체 16유형' },
+            { id: 'NT', label: '분석가 NT' },
+            { id: 'NF', label: '외교관 NF' },
+            { id: 'SJ', label: '관리자 SJ' },
+            { id: 'SP', label: '탐험가 SP' },
+          ];
+
+          return `
+            <div class="container" style="padding-top:44px;padding-bottom:44px;">
+              <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;border-bottom:1px solid var(--border);padding-bottom:28px;">
+                <div>
+                  <p class="kicker">GYEOL ARCHIVE</p>
+                  <h1 class="section-title" style="font-size:32px;">${state.archiveTab === 'types' ? '16가지 성향 도감' : '나의 설문 기록'}</h1>
+                  <p style="margin:8px 0 0;font-size:14px;color:#57534E;">
+                    ${
+                      state.archiveTab === 'types'
+                        ? '네 개의 기질 군과 열여섯 가지 성향의 고유한 특징, 가치관 경향, 시너지를 살펴볼 수 있습니다.'
+                        : '이 브라우저에 저장된 최근 설문 결과를 다시 열어보고 스펙트럼 변화를 비교합니다.'
+                    }
+                  </p>
+                </div>
+                <div class="segmented">
+                  <button type="button" class="seg-btn ${state.archiveTab === 'types' ? 'active' : ''}" data-action="archive" data-tab="types">16유형 도감</button>
+                  <button type="button" class="seg-btn ${state.archiveTab === 'history' ? 'active' : ''}" data-action="archive" data-tab="history">설문 기록 (${state.history.length})</button>
+                </div>
+              </div>
+
+              ${
+                state.archiveTab === 'types'
+                  ? `
+                    <div style="padding-top:28px;">
+                      <div class="filter-row">
+                        ${filters
+                          .map(
+                            (f) => `<button type="button" class="filter-btn ${state.archiveFilter === f.id ? 'active' : ''}" data-action="filter" data-group="${f.id}">${esc(f.label)}</button>`
+                          )
+                          .join('')}
+                      </div>
+                      <div class="groups-grid" style="margin-top:28px;">
+                        ${filtered
+                          .map((p) => {
+                            const g = TEMPERAMENT_GROUPS[p.group];
+                            return `
+                              <button type="button" class="card" style="display:flex;flex-direction:column;justify-content:space-between;text-align:left;padding:20px;" data-action="modal" data-code="${p.code}">
+                                <div>
+                                  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+                                    <div>
+                                      <span style="font-size:12px;color:var(--ink-muted);">${esc(g.name)}</span>
+                                      <h2 class="font-mono" style="margin:2px 0 0;font-size:24px;font-weight:600;">${p.code}</h2>
+                                    </div>
+                                    <div class="artwork-frame" style="width:48px;height:48px;flex-shrink:0;">${ARTWORKS[g.id]}</div>
+                                  </div>
+                                  <h3 class="font-serif" style="margin:12px 0 0;font-size:18px;font-weight:600;">${esc(p.title)}</h3>
+                                  <p style="margin:6px 0 0;font-size:12px;line-height:1.55;color:#57534E;">${esc(p.subtitle)}</p>
+                                </div>
+                                <div style="margin-top:18px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:12px;color:var(--ink-muted);">
+                                  <span>${esc(p.keywords.slice(0, 2).join(' · '))}</span>
+                                  <span>→</span>
+                                </div>
+                              </button>
+                            `;
+                          })
+                          .join('')}
+                      </div>
+                    </div>
+                  `
+                  : `
+                    <div style="padding-top:28px;">
+                      ${
+                        state.history.length === 0
+                          ? `
+                            <div class="card" style="text-align:center;padding:40px;">
+                              <p class="font-serif" style="margin:0;font-size:20px;font-weight:600;">아직 저장된 설문 기록이 없습니다</p>
+                              <p style="margin:8px 0 0;font-size:14px;color:#57534E;">16문항 설문을 완료하면 이곳에 결과와 4가지 지표 비율이 자동으로 기록됩니다.</p>
+                              <button type="button" class="btn-primary" style="margin-top:22px;" data-action="start">첫 설문 시작하기 →</button>
+                            </div>
+                          `
+                          : `
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                              <p style="margin:0;font-size:12px;color:var(--ink-muted);">최근 ${state.history.length}개의 결과가 브라우저에 보관되어 있습니다.</p>
+                              <button type="button" style="font-size:12px;color:var(--ink-muted);" data-action="clear-history">기록 모두 비우기</button>
+                            </div>
+                            <div class="two-col">
+                              ${state.history
+                                .map((item, idx) => {
+                                  const p = MBTI_PROFILES[item.typeCode] || {};
+                                  const dateStr = new Date(item.createdAt).toLocaleString('ko-KR');
+                                  return `
+                                    <button type="button" class="card" style="text-align:left;padding:20px;" data-action="open-record" data-idx="${idx}">
+                                      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                                        <div>
+                                          <span style="font-size:12px;color:var(--ink-muted);">${esc(dateStr)}</span>
+                                          <div style="margin-top:4px;display:flex;align-items:baseline;gap:10px;">
+                                            <span class="font-mono" style="font-size:24px;font-weight:600;color:var(--accent);">${item.typeCode}</span>
+                                            <span class="font-serif" style="font-size:18px;font-weight:600;">${esc(p.title || '')}</span>
+                                          </div>
+                                          ${item.politicalTendency ? `<p style="margin:4px 0 0;font-size:12px;color:#57534E;">${esc(item.politicalTendency.spectrumLabel)}</p>` : ''}
+                                        </div>
+                                        <span>→</span>
+                                      </div>
+                                      <div class="font-mono tabular-nums" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:#57534E;">
+                                        ${item.axes.map((a) => `<span>${a.winner} ${a.winnerPercent}%</span>`).join('')}
+                                      </div>
+                                    </button>
+                                  `;
+                                })
+                                .join('')}
+                            </div>
+                          `
+                      }
+                    </div>
+                  `
+              }
+            </div>
+          `;
+        }
+
+        function renderModal() {
+          const modalRoot = document.getElementById('modal-root');
+          if (!state.modalTypeCode || !MBTI_PROFILES[state.modalTypeCode]) {
+            modalRoot.innerHTML = '';
+            return;
+          }
+          const p = MBTI_PROFILES[state.modalTypeCode];
+          const g = TEMPERAMENT_GROUPS[p.group];
+
+          modalRoot.innerHTML = `
+            <div class="modal-backdrop" role="dialog" aria-modal="true" data-action="close-modal">
+              <div class="modal-panel" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="닫기" data-action="close-modal">✕</button>
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding-bottom:20px;border-bottom:1px solid var(--border);">
+                  <div class="artwork-frame" style="width:88px;height:88px;flex-shrink:0;">${ARTWORKS[g.id]}</div>
+                  <div style="padding-right:32px;">
+                    <div style="font-size:12px;color:var(--ink-muted);">
+                      ${esc(g.name)} · <span class="font-mono">${g.id}</span> · ${esc(p.keywords.join(' / '))}
+                    </div>
+                    <h2 class="font-serif" style="margin:6px 0 0;font-size:28px;font-weight:600;">
+                      <span class="font-mono">${p.code}</span> — ${esc(p.title)}
+                    </h2>
+                    <p style="margin:4px 0 0;font-size:14px;color:#57534E;">${esc(p.subtitle)}</p>
+                  </div>
+                </div>
+                <blockquote class="font-serif" style="margin:0;padding:18px 0;border-bottom:1px solid var(--border);font-size:18px;font-style:italic;line-height:1.6;">
+                  ${esc(p.quote)}
+                </blockquote>
+                <p style="margin:20px 0 0;font-size:15px;line-height:1.75;color:var(--ink-sub);">${esc(p.overview)}</p>
+                <div class="card" style="margin-top:20px;padding:18px;">
+                  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12px;color:var(--ink-muted);">
+                    <span style="font-weight:600;color:#44403C;">연구 기반 가치관·참여 경향</span>
+                    <span>${esc(p.politicalInsight.orientationTag)}</span>
+                  </div>
+                  <p style="margin:10px 0 0;font-size:14px;line-height:1.65;">${esc(p.politicalInsight.valueFocus)}</p>
+                  <p style="margin:10px 0 0;padding-top:10px;border-top:1px solid var(--border);font-size:12px;color:#57534E;">
+                    참여 방식 · ${esc(p.politicalInsight.participationMode)}
+                  </p>
+                </div>
+                <div class="two-col" style="margin-top:22px;padding-top:22px;border-top:1px solid var(--border);">
+                  <div>
+                    <h3 style="margin:0;font-size:12px;font-weight:600;color:var(--ink-muted);">드러나는 강점</h3>
+                    <ul style="list-style:none;padding:0;margin:12px 0 0;font-size:14px;">
+                      ${p.strengths.map((s, i) => `<li style="display:flex;gap:8px;margin-bottom:8px;"><span class="font-mono" style="font-size:12px;color:#a8a29e;">0${i + 1}</span><span>${esc(s)}</span></li>`).join('')}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 style="margin:0;font-size:12px;font-weight:600;color:var(--ink-muted);">돌아볼 지점</h3>
+                    <ul style="list-style:none;padding:0;margin:12px 0 0;font-size:14px;">
+                      ${p.blindSpots.map((s, i) => `<li style="display:flex;gap:8px;margin-bottom:8px;"><span class="font-mono" style="font-size:12px;color:#a8a29e;">0${i + 1}</span><span>${esc(s)}</span></li>`).join('')}
+                    </ul>
+                  </div>
+                </div>
+                <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--border);">
+                  <h3 style="margin:0;font-size:12px;font-weight:600;color:var(--ink-muted);">결이 이어지는 유형</h3>
+                  <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;">
+                    ${p.bestMatches
+                      .map(
+                        (m) => `<button type="button" class="filter-btn" style="background:rgba(235,230,223,0.6);" data-action="modal" data-code="${m}">잘 맞는 결 · <span class="font-mono" style="font-weight:600;">${m}</span> →</button>`
+                      )
+                      .join('')}
+                    <button type="button" class="filter-btn" data-action="modal" data-code="${p.growthMatch}">서로 배우는 결 · <span class="font-mono" style="font-weight:600;">${p.growthMatch}</span> →</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        function render() {
+          const root = document.getElementById('app-root');
+          const headerCta = document.getElementById('header-cta');
+          headerCta.textContent = state.view === 'quiz' ? '처음부터 다시' : '설문 시작';
+
+          if (state.view === 'home') root.innerHTML = renderLanding();
+          else if (state.view === 'quiz') root.innerHTML = renderQuiz();
+          else if (state.view === 'result') root.innerHTML = renderResult();
+          else if (state.view === 'archive') root.innerHTML = renderArchive();
+
+          renderModal();
+        }
+
+        function finishQuiz() {
+          const computed = calculateMbtiResult(state.answers);
+          const record = {
+            id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+            typeCode: computed.typeCode,
+            createdAt: new Date().toISOString(),
+            axes: computed.axes,
+            politicalTendency: computed.politicalTendency,
+            answers: { ...state.answers },
+          };
+          saveHistory(record);
+          state.activeRecord = record;
+          state.view = 'result';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          render();
+        }
+
+        function chooseAnswer(val) {
+          const q = QUESTIONS[state.currentIndex];
+          state.answers[q.id] = val;
+          render();
+          window.setTimeout(() => {
+            if (state.currentIndex < QUESTIONS.length - 1) {
+              state.currentIndex += 1;
+              render();
+            } else {
+              finishQuiz();
+            }
+          }, 160);
+        }
+
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('[data-action]');
+          if (!btn) return;
+          const action = btn.dataset.action;
+
+          if (action === 'home') {
+            state.view = 'home';
+            render();
+            const sec = btn.dataset.section;
+            if (sec) {
+              window.setTimeout(() => {
+                const el = document.getElementById(sec);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 40);
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          } else if (action === 'start') {
+            state.answers = {};
+            state.currentIndex = 0;
+            state.copied = false;
+            state.view = 'quiz';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            render();
+          } else if (action === 'archive') {
+            state.archiveTab = btn.dataset.tab || 'types';
+            state.view = 'archive';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            render();
+          } else if (action === 'filter') {
+            state.archiveFilter = btn.dataset.group || 'ALL';
+            render();
+          } else if (action === 'modal') {
+            state.modalTypeCode = btn.dataset.code || null;
+            renderModal();
+          } else if (action === 'close-modal') {
+            state.modalTypeCode = null;
+            renderModal();
+          } else if (action === 'choose') {
+            chooseAnswer(Number(btn.dataset.val));
+          } else if (action === 'jump') {
+            state.currentIndex = Number(btn.dataset.idx);
+            render();
+          } else if (action === 'prev' && state.currentIndex > 0) {
+            state.currentIndex -= 1;
+            render();
+          } else if (action === 'next' && state.currentIndex < QUESTIONS.length - 1) {
+            state.currentIndex += 1;
+            render();
+          } else if (action === 'finish') {
+            finishQuiz();
+          } else if (action === 'open-record') {
+            const rec = state.history[Number(btn.dataset.idx)];
+            if (rec) {
+              state.activeRecord = rec;
+              state.view = 'result';
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              render();
+            }
+          } else if (action === 'clear-history') {
+            clearHistory();
+            render();
+          } else if (action === 'copy' && state.activeRecord) {
+            const rec = state.activeRecord;
+            const p = MBTI_PROFILES[rec.typeCode];
+            const t = rec.politicalTendency || calculatePoliticalTendency(rec.axes);
+            const axisText = rec.axes
+              .map((a) => `${a.leftPole}/${a.rightPole}: ${a.winner} (${a.winnerPercent}%)`)
+              .join(' · ');
+            const text = `[결 GYEOL · MBTI × 가치관 성향 설문 결과]\n유형: ${p.code} — ${p.title}\n가치관 스펙트럼: ${t.spectrumLabel}\n참여 스타일: ${t.participationLabel}\n지표 비율: ${axisText}`;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).catch(() => {});
+            }
+            state.copied = true;
+            render();
+            window.setTimeout(() => {
+              state.copied = false;
+              render();
+            }, 2400);
+          }
+        });
+
+        window.addEventListener('keydown', (e) => {
+          if (state.modalTypeCode && e.key === 'Escape') {
+            state.modalTypeCode = null;
+            renderModal();
+            return;
+          }
+          if (state.view === 'quiz' && !state.modalTypeCode) {
+            if (e.key === '1') chooseAnswer(-2);
+            else if (e.key === '2') chooseAnswer(-1);
+            else if (e.key === '3') chooseAnswer(1);
+            else if (e.key === '4') chooseAnswer(2);
+            else if (e.key === 'ArrowLeft' && state.currentIndex > 0) {
+              state.currentIndex -= 1;
+              render();
+            }
+          }
+        });
+
+        render();
+      })();
+    </script>
+  </body>
+</html>
